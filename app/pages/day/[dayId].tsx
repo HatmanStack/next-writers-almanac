@@ -1,9 +1,10 @@
 import React from 'react'; 
-import Layout from '../../components/layout'; 
-import Poem from '../../components/Poem';
-import Note from '../../components/Note';
+import Layout from '../../layout'; 
+import Poem from '../../components/poem';
+import Note from '../../components/note';
+import dayIds from '../../../public/Days_sorted.js';
 import axios from 'axios';
-import { GetStaticProps, GetStaticPaths } from 'next'; 
+import { GetStaticPropsContext, GetStaticPathsResult } from 'next'; 
 
 interface DayPageProps {
   dayOfWeek: string;
@@ -28,15 +29,13 @@ const DayPage: React.FC<DayPageProps> = ({
 }) => {
   return (
     <Layout>
-      <div className="sidebar">
-        {/* Sidebar with Day/Author/Poem navigation will go here */}
-      </div>
       <div className="main-content">
         {/* Render day-specific data here */}
         <h1>{date}</h1>
         <h3>{dayOfWeek}</h3> 
         {/* ...Other Day components for transcript, etc. */}
 
+        {/* TRANSCRIPT BUTTON */}
         <Poem 
           poemTitle={poemTitle}
           poem={poem}
@@ -52,38 +51,41 @@ const DayPage: React.FC<DayPageProps> = ({
 export async function getStaticProps({ params }: GetStaticPropsContext<{ dayId: string }>) {
   // Implement Data Fetching Logic Here...
   const dayId = params?.dayId;
+  const year = dayId?.substring(0, 4);
+  const month = dayId?.substring(4, 6);
+  const day = dayId?.substring(6, 8);
 
   // Fetch data based on 'dayId' from the CDN
-  const response = await axios.get(`https://d3vq6af2mo7fcy.cloudfront.net/public/${dayId}.json`);
-  const data = response.data;
+  try {
+    const response = await axios.get(`https://d3vq6af2mo7fcy.cloudfront.net/public/${year}/${month}/${day}.json`);
+    const data = response.data;
 
-  return {
-    props: {
-      dayOfWeek: data.dayofweek,
-      date: data.date,
-      // ...etc, map the rest of your data 
-    },
-    revalidate: 60 * 60, // Example: Revalidate every hour (adjust as needed)
-  };
+      return {
+        props: {
+          dayofweek: data.dayofweek,
+          date: data.date,
+          transcript: data.transcript,
+          poemtitle: data.poemtitle,
+          poembyline: data.poembyline,
+          author: data.author,
+          poem: data.poem,
+          notes: data.notes
+        },
+        revalidate: 60 * 60, // Example: Revalidate every hour (adjust as needed)
+      };
+  } catch (error) {
+    console.log("DayId")
+  }
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
-    const startDate = new Date(1993, 0, 1); // January 1st, 1993
-    const endDate = new Date(2017, 10, 29); // November 29th, 2017
-  
-    const paths = [];
-    let currentDate = startDate;
-  
-    while (currentDate <= endDate) {
-      const dayId = currentDate.toISOString().slice(0, 10).replaceAll('-', ''); // Format as YYYYMMDD
-      paths.push({ params: { dayId } });
-  
-      currentDate.setDate(currentDate.getDate() + 1); // Move to the next day
-    }
-  
+      const paths = dayIds.map(day => ({
+        params: { dayId: day } 
+    }));
+
     return {
       paths,
-      fallback: false, // All valid paths are generated
+      fallback: false,
     };
   }
 

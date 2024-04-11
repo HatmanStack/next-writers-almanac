@@ -1,5 +1,5 @@
 import React from 'react'; 
-//import { Link } from 'next/link'; // Assuming we'll use Next's Link Component
+import Link from 'next/link';
 
 interface SidebarProps {
     isShowingContentByDate: boolean;
@@ -9,10 +9,15 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ isShowingContentByDate, setIsShowingContentByDate }) => {
     return (
         <div className="Sidebar">
-            <button onClick={() => setIsShowingContentByDate(true)}> Day </button>
-            <button onClick={() => setIsShowingContentByDate(false)}> Author </button>
-            <button onClick={() => setIsShowingContentByDate(false)}> Poem </button> 
-            {/* Above will likely need to use Next.js 'Link' Component  */}
+            <Link href="/day">
+                <button onClick={() => setIsShowingContentByDate(true)}> Day </button>
+            </Link>
+            <Link href="/author">
+                <button onClick={() => setIsShowingContentByDate(false)}> Author </button>
+            </Link>
+            <Link href="/poem">
+                <button onClick={() => setIsShowingContentByDate(false)}> Poem </button>
+            </Link>
         </div>
     );
 };

@@ -1,7 +1,8 @@
 import React from 'react'; 
-import Layout from '../../components/layout'; 
+import Layout from '../../layout'; 
 import AuthorDetails from '../../components/authordetails'; 
-import { GetStaticProps, GetStaticPaths } from 'next'; 
+import { GetStaticPropsContext, GetStaticPathsResult } from 'next'; 
+import sortedAuthors from '../../../public/Authors_sorted.js';
 import axios from 'axios'; 
 
 interface AuthorPageProps {
@@ -14,9 +15,7 @@ interface AuthorPageProps {
 const AuthorPage: React.FC<AuthorPageProps> = ({ authorName, biography, photos, poems }) => {
     return (
         <Layout> {/* Wrap with your Layout component */}
-          <div className="sidebar"> 
-            {/* Sidebar with Day/Author/Poem navigation will go here */}
-          </div>
+          
           <div className="main-content">
             <AuthorDetails 
               authorName={authorName}
@@ -33,7 +32,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ authorI
   const authorId = params?.authorId;
 
   try {
-    const response = await axios.get(`/authors/${authorId}.json`); 
+    const response = await axios.get(`https://d3vq6af2mo7fcy.cloudfront.net/public/authors/${authorId}.json`); 
     const data = response.data;
 
     return {
@@ -46,7 +45,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ authorI
       revalidate: 60 * 60,
     };
   } catch (error) {
-    // ... error handling 
+    console.log("AuthorID")
   }
 }
 

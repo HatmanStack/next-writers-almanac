@@ -1,7 +1,8 @@
 import React from 'react'; 
-import Layout from '../../components/layout'; 
+import Layout from '../../layout'; 
 import PoemDetails from '../../components/poemdetails'; 
-import { GetStaticProps, GetStaticPaths } from 'next';
+import sortedPoems from '../../../public/Poems_sorted.js';
+import { GetStaticPropsContext, GetStaticPathsResult } from 'next';
 import axios from 'axios'; 
 
 interface PoemPageProps {
@@ -14,9 +15,6 @@ interface PoemPageProps {
 const PoemPage: React.FC<PoemPageProps> = ({ poemTitle, poem, authorName, analysis }) => {
     return (
         <Layout>
-          <div className="sidebar"> 
-            {/* Sidebar with Day/Author/Poem navigation will go here */}
-          </div>
           <div className="main-content">
             <PoemDetails 
               poemTitle={poemTitle}
@@ -33,7 +31,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ poemId:
   const poemId = params?.poemId;
 
   try {
-    const response = await axios.get(`/poems/${poemId}.json`); 
+    const response = await axios.get(`https://d3vq6af2mo7fcy.cloudfront.net/public/poems/${poemId}.json`); 
     const data = response.data;
 
     return {
@@ -46,7 +44,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ poemId:
       revalidate: 60 * 60,
     };
   } catch (error) {
-    // ... error handling 
+    console.log("poemId")
   }
 }
 
