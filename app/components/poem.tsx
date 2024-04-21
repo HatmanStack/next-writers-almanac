@@ -1,5 +1,9 @@
 import React from 'react';
-import DOMPurify from 'dompurify';
+import createDOMPurify from 'dompurify';
+import {JSDOM}  from 'jsdom';
+
+const window = new JSDOM('').window;
+const DOMPurify = createDOMPurify(window);
 
 interface PoemProps {
   poemTitle: string[]; // Assuming an array of titles

@@ -51,3 +51,8 @@ body {
     padding: 20px;
     margin-bottom: 20px;
   }
+
+  .Divider {
+    width: 5%; /* Adjust this value to change the size of the image */
+    margin: 30px auto; /* Center the image */
+  }
