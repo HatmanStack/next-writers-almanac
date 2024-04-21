@@ -1,18 +1,56 @@
 import requests
 import json
 import re
+from openai import OpenAI
+import huggingface_hub
+from huggingface_hub import InferenceClient
+from dotenv import load_dotenv
+import os
 
-modelId = "meta-llama/Llama-2-13b-hf"
+load_dotenv()
 
-API_URL = f'https://api-inference.huggingface.co/models/{ modelId}'
 
-headers = {"Authorization": f"Bearer {token}"}
 
+modelId = "meta-llama/Llama-2-70b-chat-hf/v1/"
+
+API_URL = f'https://api-inference.huggingface.co/models/{modelId}'
+
+#headers = {"Authorization": f"Bearer {token}"}
+
+'''
 def query(payload):
     data = {"inputs":payload, "parameters":{"return_full_text": False}, "options":{"wait_for_model": True, "use_cache": True}}
     print(data)
     response = requests.post(API_URL, headers=headers, json=data)
     return response.json()
+'''
+def query(payload):
+    client = OpenAI(
+    base_url=API_URL,
+    api_key = os.getenv('HUGGINGFACE_API_KEY')
+    
+    )
+    chat_completion = client.chat.completions.create(
+        model="tgi",
+        messages=[
+            {"role": "system", "content": "You write essays for magazines about people's lives"},
+            {"role": "user", "content":"Tell me a story"},
+        ],
+        stream=True,
+        max_tokens=6000
+    )
+
+    # iterate and print stream
+    for message in chat_completion:
+        print(message.choices[0].delta.content, end="")
+
+
+
+def query1(payload):
+    client = InferenceClient(model="meta-llama/Llama-2-70b-chat-hf", token="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")
+
+    output = client.text_generation(payload)
+    print(output)
 
 # Load the data from poets.json
 with open('poembyline.json', 'r') as f:
@@ -44,7 +82,7 @@ def run_inference():
                     # Recursive call
                     return limit_query(data, variables)
         
-        print(query(limit_query(data, variables)))
+        query(limit_query(data, variables))
         return
 
 run_inference()
