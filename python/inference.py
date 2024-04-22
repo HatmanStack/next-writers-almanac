@@ -15,6 +15,8 @@ modelId = "meta-llama/Llama-2-70b-chat-hf/v1/"
 
 API_URL = f'https://api-inference.huggingface.co/models/{modelId}'
 
+API_KEY = os.getenv('HUGGINGFACE_API_KEY')
+
 #headers = {"Authorization": f"Bearer {token}"}
 
 '''
@@ -27,7 +29,7 @@ def query(payload):
 def query(payload):
     client = OpenAI(
     base_url=API_URL,
-    api_key = os.getenv('HUGGINGFACE_API_KEY')
+    api_key = API_KEY
     
     )
     chat_completion = client.chat.completions.create(
@@ -47,7 +49,7 @@ def query(payload):
 
 
 def query1(payload):
-    client = InferenceClient(model="meta-llama/Llama-2-70b-chat-hf", token="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")
+    client = InferenceClient(model="meta-llama/Llama-2-70b-chat-hf", token= API_KEY)
 
     output = client.text_generation(payload)
     print(output)
