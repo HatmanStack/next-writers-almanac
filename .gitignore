@@ -37,6 +37,6 @@ next-env.d.ts
 
 # python
 /python/venv
-/python/poembyline.json
 /python/poets.json
-.env
+/python/.env
+/python/node_modules
