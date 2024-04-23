@@ -51,21 +51,26 @@ def query1(payload):
     print(client.text_generation(payload,  max_new_tokens=1000))
 
 def query2(payload, attempt=1):
-    response = requests.post(API_URL, headers=headers, json={"inputs":payload, "parameters": parameters,"options": options})
-    
-    if response.status_code != 200:
-        print(response.json().get("error_type"))
-        time.sleep(20)
-        return query2(payload)
-    if not response.json()[0].get("generated_text"):
-        print("No Text")
-        time.sleep(30)
-        if attempt < 5:
-            return query2(payload, attempt + 1)
-        else:
-            return [{"generated_text": "\n\n\n\n"}]
+    try:
+        response = requests.post(API_URL, headers=headers, json={"inputs":payload, "parameters": parameters,"options": options})
+        
+        if response.status_code != 200:
+            print(response.json().get("error_type"))
+            time.sleep(20)
+            return query2(payload)
+        if not response.json()[0].get("generated_text"):
+            print("No Text")
+            time.sleep(30)
+            if attempt < 5:
+                return query2(payload, attempt + 1)
+            else:
+                return [{"generated_text": "\n\n\n\n"}]
 
-    return response.json()
+        return response.json()
+    except requests.exceptions.ConnectionError:
+        print("Connection aborted. Retrying...")
+        time.sleep(20)  # Wait for 20 seconds before retrying
+        return query2(payload, attempt)
 
 def run_inference():
     for poet in poets:
@@ -124,24 +129,22 @@ def run_inference():
         holder["poems"] = {}
         holder["biography"] = response
         newVariables = [poetsorg, allpoetry, poetryfoundation, wiki]
-        sources = {
-            "poetsorg": "poets.org",
-            "allpoetry": "all poetry",
-            "poetryfoundation": "poetry foundation",
-            "wiki": "wikipedia"
-        }
-
-        data_types = ["photos", "poems"]
-
-        for source_key, source_value in sources.items():
-            if source_value in newVariables and source_value != "NotAvailable":
-                for data_type in data_types:
-                    if poets[poet][source_value][data_type] not in ["None", "NotAvailable"]:
-                        if source_key == "poetryfoundation" and data_type == "photos":
-                            # Only include the third photo
-                            holder[data_type][source_key] = poets[poet][source_value][data_type][2]
-                        else:
-                            holder[data_type][source_key] = poets[poet][source_value][data_type]
+        for i in newVariables:
+            if i != "NotAvailable":          
+                if i == poetsorg and poets[poet]["poets.org"]["photo"] != "None" and poets[poet]["poets.org"]["photo"] != "NotAvailable":
+                    holder["photos"]["poetsorg"] = poets[poet]["poets.org"]["photo"]
+                if i == poetsorg and  poets[poet]["poets.org"]["poems"] != "None" and  poets[poet]["poets.org"]["poems"] != "NotAvailable":
+                    holder['poems']['poetsorg'] = poets[poet]["poets.org"]["poems"]
+                if i == allpoetry and poets[poet]["all poetry"]["photo"] != "None" and poets[poet]["all poetry"]["photo"] != "NotAvailable":
+                    holder["photos"]["allpoetry"] = poets[poet]["all poetry"]["photo"]
+                if i == allpoetry and poets[poet]["all poetry"]["poems"] != "None" and poets[poet]["all poetry"]["poems"] != "NotAvailable":
+                    holder['poems']['allpoetry'] = poets[poet]["all poetry"]["poems"]
+                if i == poetryfoundation and poets[poet]["poetry foundation"]["photo"] != "None" and poets[poet]["poetry foundation"]["photo"] != "NotAvailable":
+                    holder["photos"]["poetryfoundation"] = poets[poet]["poetry foundation"]["photo"][3]
+                if i == poetryfoundation and poets[poet]["poetry foundation"]["poems"] != "None" and poets[poet]["poetry foundation"]["poems"] != "NotAvailable":
+                    holder['poems']['poetryfoundation'] = poets[poet]["poetry foundation"]["poems"]
+                if i == wiki and poets[poet]["wikipedia"]["photo"] != "None" and poets[poet]["wikipedia"]["photo"] != "NotAvailable":
+                    holder["photos"]["wikipedia"] = poets[poet]["wikipedia"]["photo"]
 
         
         with open(os.path.join(output_folder, f"{poet}.json"), 'w') as f:

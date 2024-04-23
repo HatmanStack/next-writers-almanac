@@ -40,3 +40,4 @@ next-env.d.ts
 /python/poets.json
 /python/.env
 /python/node_modules
+/python/data.txt
