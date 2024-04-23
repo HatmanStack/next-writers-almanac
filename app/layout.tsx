@@ -6,6 +6,9 @@ import classNames from 'classnames';
 import Head from 'next/head'; 
 import Image from 'next/image';
 import './ui/global.css'
+import { PoemProvider } from './context/poemcontext';
+import { AuthorProvider } from './context/authorcontext';
+
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -23,11 +26,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             {/* Add other SEO meta tags as needed */}
         </Head>
         <body>
+        <AuthorProvider>
+        <PoemProvider>
         <div className="AppHeader">
             <Image className="LogoImage" src={logo} alt="LOGO" />
             <div className="FormattingContainer" />
             {/* Search component will go here */}
         </div>
+        
         <div className={classNames({ ColumnContainer: !isShowingContentByDate })}>
             <Sidebar 
                     isShowingContentByDate={isShowingContentByDate}
@@ -38,6 +44,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     {children}
                 </div>
             </div>
+            </PoemProvider>
+        </AuthorProvider>
             </body>
         </html>   
     );

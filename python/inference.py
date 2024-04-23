@@ -7,12 +7,9 @@ from huggingface_hub import InferenceClient
 from dotenv import load_dotenv
 import os
 import time
-
-from dotenv import load_dotenv
+import sys
 
 load_dotenv()
-
-
 
 modelId = "meta-llama/Llama-2-70b-chat-hf"
 API_URL = f'https://api-inference.huggingface.co/models/{modelId}'
@@ -22,10 +19,14 @@ headers = {"Authorization": f"Bearer {API_KEY}"}
 parameters = {"return_full_text":False,"max_new_tokens":1000}
 options = {"use_cache": False, "wait_for_model": True}
 
-output_folder = "../../../GarrisonNew/public/author"
+output_folder = "./author"
 
 with open('poembyline.json', 'r') as f:
     poets = json.load(f)
+    poets_array = list(poets.keys())
+
+if len(sys.argv) > 1:
+    count = int(sys.argv[1])
 
 def query(payload):
     client = OpenAI(
@@ -56,24 +57,28 @@ def query2(payload, attempt=1):
         
         if response.status_code != 200:
             print(response.json().get("error_type"))
+            print(response.status_code)
             time.sleep(20)
+            if response.status_code == 422:
+                time.sleep(300)
             return query2(payload)
         if not response.json()[0].get("generated_text"):
             print("No Text")
-            time.sleep(30)
-            if attempt < 5:
+            time.sleep(20)
+            if attempt < 3:
                 return query2(payload, attempt + 1)
             else:
-                return [{"generated_text": "\n\n\n\n"}]
-
+                return "NotAvailable"
+        
         return response.json()
     except requests.exceptions.ConnectionError:
         print("Connection aborted. Retrying...")
         time.sleep(20)  # Wait for 20 seconds before retrying
         return query2(payload, attempt)
 
-def run_inference():
-    for poet in poets:
+def run_inference():   
+    #for index in range(count, count+2):
+        poet = poets_array[count]
         info = poets[poet]
         print(poet)
         poetsorg =  "NotAvailable" if info["poets.org"] == "NotAvailable" else re.sub('<.*?>', '', info["poets.org"]["biography"])
@@ -89,9 +94,6 @@ def run_inference():
         def limit_query(data, variables):
             word_count = len(data.split())
             if word_count <= 2500:
-                with open('data.txt', 'a', encoding='utf-8') as f:
-                    text = f'Data: \n\n{data}\n\n'
-                    f.write(text)      
                 return data
             else:
                 if variables:
@@ -102,32 +104,34 @@ def run_inference():
                     # Recursive call
                     return limit_query(data, variables)
         
+       
         response = query2(limit_query(data, variables))
 
-        pattern = r"\n\n\n\n"
-        match = re.search(pattern, response[0]["generated_text"])
-        if match:
-            response = "NotAvailable"
-        else:
-            response = response[0]["generated_text"]
+        with open('data.json', 'r') as file:
+            json_log = json.load(file)
+        
+        json_log[poet] = {}
+        json_log[poet]["data"] = data
+        json_log[poet]["response"] = response[0]["generated_text"] if response != "NotAvailable" else "NotAvailable"
 
-        with open('data.txt', 'a', encoding='utf-8') as f:
-            text = f'Response: \n\n{response}\n\n'
-            f.write(text)
-        '''
+        pattern = r"\n\n\n\n"
+        match = re.search(pattern, json_log[poet]["response"])
+        if match or response == "NotAvailable":
+            reflected_response = "NotAvailable"
         else:
             reflected_response = reflection(response[0]["generated_text"])
 
-        with open('data.txt', 'a', encoding='utf-8') as f:
-            text = f'Reflected Response: \n\n{reflected_response}\n\n'
-            f.write(text)
-        '''
-
+        json_log[poet]["reflected_response"] = reflected_response[0]["generated_text"] if reflected_response != "NotAvailable" else "NotAvailable"
+        print(json_log)
+        
+        with open('data.json', 'w') as file:
+            json.dump(json_log, file, indent=4)
+        
         holder = {}
         holder["poet"] = poet
         holder["photos"] = {}
         holder["poems"] = {}
-        holder["biography"] = response
+        holder["biography"] = reflected_response[0]["generated_text"] if reflected_response != "NotAvailable" else "NotAvailable"
         newVariables = [poetsorg, allpoetry, poetryfoundation, wiki]
         for i in newVariables:
             if i != "NotAvailable":          
@@ -162,7 +166,7 @@ def reflection(payload):
     
     reflected_response = query2(data)
     
-    return reflected_response[0]["generated_text"]
+    return reflected_response
 
 
 

@@ -14,8 +14,8 @@ body {
     align-items: center;
   }
   
-  /* Sidenav Styles */
-  .sidenav {
+  /* SidebarStyles */
+  .Sidebar{
     height: 100%;
     width: 200px;
     position: fixed;
@@ -27,7 +27,7 @@ body {
     padding-top: 20px;
   }
   
-  .sidenav a {
+  .Sidebar a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 16px;
@@ -35,7 +35,7 @@ body {
     display: block;
   }
   
-  .sidenav a:hover {
+  .Sidebar a:hover {
     color: #000;
   }
   

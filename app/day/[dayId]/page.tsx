@@ -1,6 +1,8 @@
+
 import Poem from '../../components/poem';
 import Note from '../../components/note';
-
+import { usePoem } from '../../context/poemcontext';
+import { useAuthor } from '../../context/authorcontext';
 import fs from 'fs';
 import path from 'path';
 
@@ -31,8 +33,13 @@ async function getData(params: { dayId: string }) {
 }
 
 export default async function Page({ params }: { params: { dayId: string } }) {
-  
+  //const { setCurrentPoem } = usePoem();
+  //const { setCurrentAuthor } = useAuthor();
   const data = await getData(params);
+  
+  
+  //setCurrentPoem(data.poem);
+  //setCurrentAuthor(data.author);
   
   return (
     <div className="main-content">
