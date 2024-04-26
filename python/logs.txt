@@ -1,0 +1,384 @@
+(venv) PS C:\Users\Whom\Desktop\Git\next-writers-almanac\python> py scrape.py
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\#67: Success is counted sweetest.json'#67: Success is counted sweetest
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\254 "Hope" is the thing with feathers.json'
+254 "Hope" is the thing with feathers
+[Errno 22] Invalid argument: "C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\288 I'm Nobody! Who are you?.json"
+288 I'm Nobody! Who are you?
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\342 It will be Summer -- eventually< h2>.json'342 It will be Summer -- eventually< h2>
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\A Bestiary (excerpts: "Herring," "Lion," and "Wolf").json'
+A Bestiary (excerpts: "Herring," "Lion," and "Wolf")
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\A Shropshire Lad: XIII.json'
+A Shropshire Lad: XIII
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\A selection from "Three Songs at the End of Summer".json'
+A selection from "Three Songs at the End of Summer"
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\After Our Daughter’s Wedding.json'
+After Our Daughter’s Wedding
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\After You, Who?.json'
+After You, Who?
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\And is it night? Are they thine eyes that shine?.json'
+And is it night? Are they thine eyes that shine?
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Anniversary: One Fine Day.json'
+Anniversary: One Fine Day
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Ars Poetica #100: I Believe.json'
+Ars Poetica #100: I Believe
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Assignment #1: Write a poem about Baseball and God.json'
+Assignment #1: Write a poem about Baseball and God
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\At the Children’s Violin Concert.json'At the Children’s Violin Concert
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\At the IGA: Franklin, New Hampshire.json'
+At the IGA: Franklin, New Hampshire
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Autism Poem: The Grid.json'
+Autism Poem: The Grid
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Baltimore: A Fragment from the Thirties.json'
+Baltimore: A Fragment from the Thirties
+Exceeded 30 redirects.
+Bearhug
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Beethoven: The Late Sonatas.json'
+Beethoven: The Late Sonatas
+[Errno 22] Invalid argument: "C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Bill Bailey, Won't You Please Come Home?.json"Bill Bailey, Won't You Please Come Home?
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Birthday Girl: 1950.json'
+Birthday Girl: 1950
+Exceeded 30 redirects.
+Blackbi
+Exceeded 30 redirects.
+Blackbi
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Celebration: Birth of a Colt.json'
+Celebration: Birth of a Colt
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Chapter: Penelope.json'
+Chapter: Penelope
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Children\'s "counting out" rhymes.json'
+Children's "counting out" rhymes
+[Errno 2] No such file or directory: "C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Children's rhyme: A Dandling Song.json"
+Children's rhyme: A Dandling Song
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Christmas Eve: My Mother Dressing.json'
+Christmas Eve: My Mother Dressing
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Cinderella’s Diary.json'
+Cinderella’s Diary
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Clara: In the Post Office.json'
+Clara: In the Post Office
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Continuum: a Love Poem.json'
+Continuum: a Love Poem
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Daddy Out Hitch-Hiking At 3:00 A.M..json'
+Daddy Out Hitch-Hiking At 3:00 A.M.
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Dance Suite: Hip Hop.json'
+Dance Suite: Hip Hop
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Descending Theology: The Crucifixion.json'
+Descending Theology: The Crucifixion
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Descending Theology: The Garden.json' 
+Descending Theology: The Garden
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Did Morality Evolve From Salt?.json'
+Did Morality Evolve From Salt?
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Do You Love Me?.json'
+Do You Love Me?
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Do the Others Speack of Me Mockingly, Maliciously?.json'
+Do the Others Speack of Me Mockingly, Maliciously?
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Early Morning: Cape Cod.json'
+Early Morning: Cape Cod
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Ecclesiastes 3:1-8.json'
+Ecclesiastes 3:1-8
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Excerpt from "An Essay on Man".json'
+Excerpt from "An Essay on Man"
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Excerpt from "Endymion" Book I.json'
+Excerpt from "Endymion" Book I
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Excerpt from "The Dragon and the Unicorn".json'
+Excerpt from "The Dragon and the Unicorn"
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Excerpt from “The Prelude".json'
+Excerpt from “The Prelude"
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Excerpts from "How to be Perfect".json'
+Excerpts from "How to be Perfect"
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\From “Ode: “Intimations of Immortality from Recollections of Early Childhood”.json'
+From “Ode: “Intimations of Immortality from Recollections of Early Childhood”
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Grandfather’s Cars.json'
+Grandfather’s Cars
+[Errno 22] Invalid argument: "C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Have Some Madeira, M'dear?.json"
+Have Some Madeira, M'dear?
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Have You Met Miss Jones?.json'
+Have You Met Miss Jones?
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Homage: Doo-Wop.json'
+Homage: Doo-Wop
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Home No More to Me, Whither Must I Wander?.json'
+Home No More to Me, Whither Must I Wander?
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Homecoming: Appalachia, Fall 1975.json'
+Homecoming: Appalachia, Fall 1975
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Homicide Detective: A Film Noir.json'
+Homicide Detective: A Film Noir
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Hornworm: Summer Reverie.json'
+Hornworm: Summer Reverie
+[Errno 2] No such file or directory: "C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Hunter's Sabbath: Hippocratic.json"
+Hunter's Sabbath: Hippocratic
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\In Extremis: Poems about My Father.json'
+In Extremis: Poems about My Father
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Is It a Month?.json'
+Is It a Month?
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Is It for Now or for Always?.json'
+Is It for Now or for Always?
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Is This Feeling About the West Real?.json'    
+Is This Feeling About the West Real?
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\It’s Sweet to Be Remembered.json'
+It’s Sweet to Be Remembered
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Knoxville: Summer 1915.json'
+Knoxville: Summer 1915
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Letter to Her Sister: Nebraska, 1846.json'
+Letter to Her Sister: Nebraska, 1846
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Listening to Her Practice: My Middle Daughter, on the Edge of Adolescence, Learns to Play the Saxoph.json'
+Listening to Her Practice: My Middle Daughter, on the Edge of Adolescence, Learns to Play the Saxoph
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Love: Beginnings.json'
+Love: Beginnings
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Managing the Common Herd: Two Approaches for Senior Management.json'
+Managing the Common Herd: Two Approaches for Senior Management
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Marcus Millsap: School Day Afternoon.json'
+Marcus Millsap: School Day Afternoon
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Miles: Prince of Darkness.json'
+Miles: Prince of Darkness
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Monopoly: 1955.json'
+Monopoly: 1955
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Mosaic of the Nativity: Serbia, Winter 1993.json'
+Mosaic of the Nativity: Serbia, Winter 1993
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\My Daughter at 14: Christmas Dance..json'
+My Daughter at 14: Christmas Dance.
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\My Papa’s Waltz.json'
+My Papa’s Waltz
+[Errno 2] No such file or directory: "C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\My Sad Self: To Frank O'Hara.json"
+My Sad Self: To Frank O'Hara
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Newsphoto: Basra, Collateral Damage.json'
+Newsphoto: Basra, Collateral Damage
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Night Poem: U.S.A..json'
+Night Poem: U.S.A.
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\NotAvailable.json'
+NotAvailable
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Nursery, 11:00 p.m..json'
+Nursery, 11:00 p.m.
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\O mistress mine, where are you roaming?.json'
+O mistress mine, where are you roaming?
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\October Saturday: 1949.json'
+October Saturday: 1949
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Ode: Intimations of Immortality (excerpt).json'
+Ode: Intimations of Immortality (excerpt)
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Ode: Intimations of Immortality from Recollections of Early Childhood (excerpt).json'
+Ode: Intimations of Immortality from Recollections of Early Childhood (excerpt)
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Owen: Seven Days.json'
+Owen: Seven Days
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Paradise Lost, lines 639-656 "With thee Conversing".json'
+Paradise Lost, lines 639-656 "With thee Conversing"
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Patty’s Charcoal Drive-In.json'
+Patty’s Charcoal Drive-In
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Perpetuum Mobile: The City.json'
+Perpetuum Mobile: The City
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Ponce de Leon: A Morning Walk.json'
+Ponce de Leon: A Morning Walk
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Ragged Sonnet: When in a Deep Depression.json'
+Ragged Sonnet: When in a Deep Depression
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Relations: Old Light New Sun Postmistress Earth 04421.json'
+Relations: Old Light New Sun Postmistress Earth 04421
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Remarkable Women: An Apostrophe.json'
+Remarkable Women: An Apostrophe
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Rutabagas: A Love Poem.json'
+Rutabagas: A Love Poem
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\SNOW: I.json'
+SNOW: I
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Santiago: Five Men in the Street: Number One.json'
+Santiago: Five Men in the Street: Number One
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Santiago: Forestal Park.json'
+Santiago: Forestal Park
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\September: Last Day at the Beach.json'September: Last Day at the Beach
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Shiloh: A Requiem.json'
+Shiloh: A Requiem
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sister Mary Appasionata Lectures the Eighth Grade Boys and Girls: Flesh Willing, Spirit Weak.json'
+Sister Mary Appasionata Lectures the Eighth Grade Boys and Girls: Flesh Willing, Spirit Weak
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Song: On May Morning.json'
+Song: On May Morning
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Song: The Summer People.json'
+Song: The Summer People
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Song: To Celia.json'
+Song: To Celia
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Song: To Celia (1).json'
+Song: To Celia (1)
+[Errno 2] No such file or directory: "C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 100: Where art thou Muse that thou forget'st so long.json"
+Sonnet 100: Where art thou Muse that thou forget'st so long
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 102: My love is strengthened, though more weak in seeming.json'
+Sonnet 102: My love is strengthened, though more weak in seeming
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 104: To me, fair friend, you never can be old.json'
+Sonnet 104: To me, fair friend, you never can be old
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 106: When in the chronicle of wasted time.json'
+Sonnet 106: When in the chronicle of wasted time
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 109: O! never say that I was false of heart.json'
+Sonnet 109: O! never say that I was false of heart
+[Errno 2] No such file or directory: "C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 10: For shame deny that thou bear'st love to any.json"
+Sonnet 10: For shame deny that thou bear'st love to any
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 114: Or whether doth my mind, being crowned with you.json'
+Sonnet 114: Or whether doth my mind, being crowned with you
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 116: Let me not to the marriage of true minds.json'
+Sonnet 116: Let me not to the marriage of true minds
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 129: The expense of spirit in a waste of shame.json'
+Sonnet 129: The expense of spirit in a waste of shame
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 138: When my love swears that she is made of truth.json'
+Sonnet 138: When my love swears that she is made of truth
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 144: Two loves I have, of comfort and despair.json'
+Sonnet 144: Two loves I have, of comfort and despair
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 147: My love is as a fever, longing still.json'
+Sonnet 147: My love is as a fever, longing still
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 151: Some Glory in Their Birth, Some in Their Skill.json'
+Sonnet 151: Some Glory in Their Birth, Some in Their Skill
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 15: When I consider every thing that grows.json'
+Sonnet 15: When I consider every thing that grows
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 161:Let me not to the marriage 
+of true minds.json'
+Sonnet 161:Let me not to the marriage of true minds
+[Errno 2] No such file or directory: "C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 18: Avenge O Lord thy slaughter'd Saints, whose bones.json"
+Sonnet 18: Avenge O Lord thy slaughter'd Saints, whose bones
+[Errno 2] No such file or directory: "C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 18: Shall I Compare Thee to a Summer's Day?.json"
+Sonnet 18: Shall I Compare Thee to a Summer's Day?
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 1: From fairest creatures we desire increase.json'
+Sonnet 1: From fairest creatures we desire increase
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 22: When our two souls stand up erect and strong.json'
+Sonnet 22: When our two souls stand up erect and strong
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 25: Let those who are in favour with their stars.json'
+Sonnet 25: Let those who are in favour with their stars
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 27: Weary with toil, I haste me to my bed.json'
+Sonnet 27: Weary with toil, I haste me to my bed
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 28: How can I then return in happy plight.json'
+Sonnet 28: How can I then return in happy plight
+[Errno 2] No such file or directory: "C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 29: When in disgrace with fortune and men's eyes.json"
+Sonnet 29: When in disgrace with fortune and men's eyes
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 2: Time does not bring relief.json'
+Sonnet 2: Time does not bring relief
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 2: When forty winters shall besiege thy brow.json'
+Sonnet 2: When forty winters shall besiege thy brow
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 30: When to the sessions of sweet silent thought.json'
+Sonnet 30: When to the sessions of sweet silent thought
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 37: As a decrepit father takes 
+delight.json'
+Sonnet 37: As a decrepit father takes delight
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 3: Unlike are we, unlike, O princely Heart!.json'
+Sonnet 3: Unlike are we, unlike, O princely Heart!
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 43: How do I love thee, let me 
+count the ways.json'
+Sonnet 43: How do I love thee, let me count the ways
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 55: Not marble, nor the gilded 
+monuments.json'
+Sonnet 55: Not marble, nor the gilded monuments
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 5:Those hours, that with gentle work did frame.json'
+Sonnet 5:Those hours, that with gentle work did frame
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 60: Like as the waves make towards the pebbled shore.json'
+Sonnet 60: Like as the waves make towards the pebbled shore
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 62: Sin of self-love possesseth all mine eye.json'
+Sonnet 62: Sin of self-love possesseth all mine eye
+[Errno 2] No such file or directory: "C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 64: When I have seen by Time's 
+fell hand defac'd.json"
+Sonnet 64: When I have seen by Time's fell hand defac'd
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 65: Since brass nor stone nor boundless sea.json'
+Sonnet 65: Since brass nor stone nor boundless sea
+[Errno 2] No such file or directory: "C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 6: Then let not winter's ragged hand deface.json"
+Sonnet 6: Then let not winter's ragged hand deface
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 71: No longer mourn for me when I am dead.json'
+Sonnet 71: No longer mourn for me when I am dead
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 73: That Time of Year Thou Mayst in Me Behold.json'
+Sonnet 73: That Time of Year Thou Mayst in Me Behold
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 75: So are you to my thoughts as food to life.json'
+Sonnet 75: So are you to my thoughts as food to life
+[Errno 2] No such file or directory: "C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 88: When thou shalt be dispos'd to set me light.json"
+Sonnet 88: When thou shalt be dispos'd to set me light
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 8: I ponder it again and know for sure.json'
+Sonnet 8: I ponder it again and know for sure
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet 94: They that have power to hurt and will do none.json'
+Sonnet 94: They that have power to hurt and will do none
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet CVI: “When in the chronicle of 
+wasted time”.json'
+Sonnet CVI: “When in the chronicle of wasted time”
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet: Daffodils.json'
+Sonnet: Daffodils
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet: Rarely, Rarely Comest Thou, Spirit of Delight.json'
+Sonnet: Rarely, Rarely Comest Thou, Spirit of Delight
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet: The Light and the Dark.json'  
+Sonnet: The Light and the Dark
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sonnet: They May Not Mean To, But They Do.json'
+Sonnet: They May Not Mean To, But They Do
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Sweater Weather: A Love Song to Language.json'
+Sweater Weather: A Love Song to Language
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Temperance lyrics: "You are coming to 
+woo me" and "One Night in July".json'
+Temperance lyrics: "You are coming to woo me" and "One Night in July"
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\The Answer is "No".json'
+The Answer is "No"
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\The Bracelet: To Julia.json'
+The Bracelet: To Julia
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\The Kama Sutra of Kindness: Position Number 3.json'
+The Kama Sutra of Kindness: Position Number 3
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\The Monks of St. John’s File in for Prayer.json'
+The Monks of St. John’s File in for Prayer
+[Errno 2] No such file or directory: "C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\The River Merchant's Wife: A Letter.json"
+The River Merchant's Wife: A Letter
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\The Thirty Favorite Lives: Amager.json'
+The Thirty Favorite Lives: Amager
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\The Vast Ocean Begins Just Outside Our Church: The Eucharist.json'
+The Vast Ocean Begins Just Outside Our Church: The Eucharist
+[Errno 2] No such file or directory: "C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Things I Didn't Know I Loved: After Nazim Hikmet.json"
+Things I Didn't Know I Loved: After Nazim Hikmet
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Things Shouldn’t Be So Hard.json'
+Things Shouldn’t Be So Hard
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Thoughtful Voyeur: Woman and Cantaloupe.json'
+Thoughtful Voyeur: Woman and Cantaloupe
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Time for Serenity, Anyone?.json'
+Time for Serenity, Anyone?
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\To Jane: The Keen Stars Were Twinkling.json'
+To Jane: The Keen Stars Were Twinkling
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\To My Son’s Girlfriend.json'
+To My Son’s Girlfriend
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\To the Evening Star: Central Minnesota.json'
+To the Evening Star: Central Minnesota
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\To the Student Who Asked Why He Earned a "C" on an Essay about Love.json'
+To the Student Who Asked Why He Earned a "C" on an Essay about Love
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Tuesday 9:00AM.json'
+Tuesday 9:00AM
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Twelve Facts About the Immigrants: A Prose Poem.json'
+Twelve Facts About the Immigrants: A Prose Poem
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Twilight: After Haying.json'
+Twilight: After Haying
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Two limericks excerpted from "The Rubaiyat of 
+Carl Burell".json'
+Two limericks excerpted from "The Rubaiyat of Carl Burell"
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Ultima Thule: Dedication to G.W.G..json'
+Ultima Thule: Dedication to G.W.G.
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\WINTER: TONIGHT: SUNSET.json'
+WINTER: TONIGHT: SUNSET
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\What Are Years?.json'
+What Are Years?
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\What Became of Them?.json'
+What Became of Them?
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\What Did We See Today?.json'
+What Did We See Today?
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\What Does Love Look Like Without Clothes On?.json'
+What Does Love Look Like Without Clothes On?
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\What I Like and Don’t Like.json'
+What I Like and Don’t Like
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\What Yo’ Gwine T’ Do?.json'
+What Yo’ Gwine T’ Do?
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Where Am I?.json'
+Where Am I?
+[Errno 22] Invalid argument: "C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Where are Men When they're Not at Home?.json"
+Where are Men When they're Not at Home?
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Whittling: The Last Class.json'
+Whittling: The Last Class
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Who Taught You Rapture?.json'
+Who Taught You Rapture?
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Who Was That Man?.json'
+Who Was That Man?
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Who Will Know?.json'
+Who Will Know?
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Why Fool Around?.json'
+Why Fool Around?
+[Errno 22] Invalid argument: "C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Why don't you get transferred, Dad?.json"
+Why don't you get transferred, Dad?
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Will We Survive?.json'
+Will We Survive?
+[Errno 22] Invalid argument: "C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Will there really be a 'Morning'?.json"       
+Will there really be a 'Morning'?
+[Errno 2] No such file or directory: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Winter: An Ode.json'
+Winter: An Ode
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\Winter: Tonight: Sunset.json'
+Winter: Tonight: Sunset
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\song from "The Tempest".json'
+song from "The Tempest"
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\traditional "Guy Fawkes Day" song.json'
+traditional "Guy Fawkes Day" song
+[Errno 22] Invalid argument: 'C:\\Users\\Whom\\Desktop\\Garrison\\public\\poem\\untitled ("The first time I remember waking up").json'
+untitled ("The first time I remember waking up")
