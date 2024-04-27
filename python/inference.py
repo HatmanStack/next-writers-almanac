@@ -25,10 +25,9 @@ output_folder = "C:\\Users\\Whom\\Desktop\\GarrisonNew\\public\\author"
 
 with open('poembyline.json', 'r') as f:
     poets = json.load(f)
-    poets_array = list(poets.keys())
 
 if len(sys.argv) > 1:
-    count = int(sys.argv[1])
+    count = sys.argv[1]
 
 def chat_setup(payload):
     chat = [
@@ -65,7 +64,7 @@ def query(payload, attempt=1):
         return query(payload, attempt)
 
 def run_inference():   
-    poet = poets_array[count]
+    poet = count
     info = poets[poet]
     print(f'{poet} : {count}')
     poetsorg =  "NotAvailable" if info["poets.org"] == "NotAvailable" else re.sub('<.*?>', '', info["poets.org"]["biography"])
@@ -94,11 +93,12 @@ def run_inference():
                 return limit_query(data, variables)
     
     
-    response = query(limit_query(data, variables))
+    #response = query(limit_query(data, variables))
 
-    with open('data.json', 'r') as file:
+    with open('new_data.json', 'r') as file:
         json_log = json.load(file)
-    
+    response = json_log[poet]["response"]
+    '''
     json_log[poet] = {}
     json_log[poet]["data"] = data
     json_log[poet]["response"] = response[0]["generated_text"] if response != "NotAvailable" else "NotAvailable"
@@ -113,14 +113,16 @@ def run_inference():
     json_log[poet]["reflected_response"] = reflected_response[0]["generated_text"] if reflected_response != "NotAvailable" else "NotAvailable"
     
     
-    with open('data.json', 'w') as file:
+    with open('new_data.json', 'w') as file:
         json.dump(json_log, file, indent=4)
-    
+    '''
+    refleced_response = json_log[poet]["reflected_response"]
     holder = {}
     holder["poet"] = poet
     holder["photos"] = {}
     holder["poems"] = {}
-    holder["biography"] = reflected_response[0]["generated_text"] if reflected_response != "NotAvailable" else "NotAvailable"
+    #holder["biography"] = reflected_response[0]["generated_text"] if reflected_response != "NotAvailable" else "NotAvailable"
+    holder["biography"] = refleced_response
     sources = ["poets.org", "all poetry", "poetry foundation", "wikipedia"]
     source_variables = [poetsorg, allpoetry, poetryfoundation, wiki]
 
