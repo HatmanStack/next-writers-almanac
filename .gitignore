@@ -41,4 +41,14 @@ next-env.d.ts
 /python/.env
 /python/node_modules
 /python/data.txt
-python\google_response.json
+/python/google_response.json
+
+
+
+
+
+
+
+
+
+

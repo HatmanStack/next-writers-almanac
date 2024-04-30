@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import time
 from urllib.parse import quote
 
-rootDir = 'C:\\Users\\Whom\\Desktop\\GarrisonNew\\public\\apoem'
+rootDir = 'C:\\Users\\Whom\\Desktop\\GarrisonNew\\public'
 baseDir = '../../../GarrisonNew/public/'
 
 def get_path(data):
@@ -21,12 +21,23 @@ def process_files(rootDir):
         #print(f'Found directory: {dirName}')
         for fname in fileList:
             if fname.endswith('.json'):
-                found = False
-                holder_poem = '' 
-                with open(os.path.join(dirName, fname), 'r', encoding='utf-8') as f:
-                    data = json.load(f) 
-                    if data['poem'] == 'NotAvailable': #and len(data['dates']) > 1:
-                        count += 1
+                if fname == '20001101.json':
+                        return
+                
+                with open(os.path.join(dirName, fname), 'r', encoding="utf-8") as f:
+                    data = json.load(f)                 
+                    if data['poem'] != 'NotAvailable': #and len(data['dates']) > 1:
+                        for i in range(len(data['poem'])):
+                            if '©' in data['poem'][i]:
+                                print(fname)
+                                data['poem'][i] = data['poem'][i].split('Copyright ©')[0]
+                            if '©' in data['poem'][i]:
+                                data['poem'][i] = data['poem'][i].split('copyright ©')[0]
+                            if '©' in data['poem'][i]:
+                                data['poem'][i] = data['poem'][i].split('©')[0]
+                            
+                            with open(os.path.join(dirName, fname), 'w', encoding='utf-8') as f:
+                                json.dump(data, f, indent=4)
                         '''
                         for i in reversed(range(len(data['dates']))):
                             fresh_path = get_path(data['dates'][i])
