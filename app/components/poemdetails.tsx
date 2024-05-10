@@ -9,7 +9,7 @@ interface PoemDetailsProps {
 
 const PoemDetails: React.FC<PoemDetailsProps> = ({ poemTitle, authorName, poem, analysis }) => {
   return (
-    <div className="PoemDetailsContainer"> 
+    <div className="PoemDetailsContainer" style={{ backgroundColor: 'black', color: 'white' }}> 
       <h1>{poemTitle}</h1>
       <p className="author">By: {authorName}</p> 
       <div className="poem-text">

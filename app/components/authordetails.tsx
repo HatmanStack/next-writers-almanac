@@ -1,21 +1,23 @@
 import React from 'react';
-import Link from 'next/link';
 
-interface AuthorDetailsProps {
+type AuthorDetailsProps = {
   authorName: string;
   biography: string;
-  poems: { [poemName: string]: string }; // Link to the poem content
-  photos?: string[]; // Optional if you have author photos
-}
+  poems: { [key: string]: string };
+  photos: { [key: string]: string | { image: string; credit: string } };
+};
 
-const AuthorDetails: React.FC<AuthorDetailsProps> = ({ authorName, biography, poems, photos}) => {
+const AuthorDetails: React.FC<AuthorDetailsProps> = ({ authorName, biography, poems, photos }) => {
+  const photoUrls = photos ? Object.values(photos).map(photo => typeof photo === 'string' ? photo : photo.image) : [];
+  const poemEntries = poems ? Object.entries(poems) : [];
+
   return (
-    <div className="AuthorDetailsContainer"> 
+    <div className="AuthorDetailsContainer" style={{ backgroundColor: 'black', color: 'white' }}> 
       <h1>{authorName}</h1>
 
-      {photos && photos.length > 0 && (
-        <div className="authorPhotos">
-          {photos.map((photoUrl, index) => (
+      {photoUrls.length > 0 && (
+        <div className="authorPhotos" style={{ backgroundColor: 'black', color: 'white' }}>
+          {photoUrls.map((photoUrl, index) => (
             <img src={photoUrl} alt={`${authorName} photo ${index + 1}`} className="authorPhoto" key={index} />
           ))}
         </div>
@@ -30,14 +32,12 @@ const AuthorDetails: React.FC<AuthorDetailsProps> = ({ authorName, biography, po
 
       <h2>Poems</h2>
       <ul>
-        {Object.entries(poems).map(([poemName, poemUrl]) => (
-          <li key={poemName}>
-            <Link href={`/poem/${poemName}`}>
-              <a>{poemName}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {poemEntries.map(([poemName, poemUrl]) => (
+        <li key={poemName}>
+          <a href={poemUrl}>{poemName}</a>
+        </li>
+      ))}
+    </ul>
     </div>
   );
 };

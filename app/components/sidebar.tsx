@@ -1,34 +1,34 @@
+'use client'
 import React, { useEffect, useState }   from 'react'; 
 import Link from 'next/link';
-import { usePoem } from '../context/poemcontext';
-import { useAuthor } from '../context/authorcontext';
 
+type SidebarProps = {
+    currentAuthor: string;
+    currentPoem: string;
+  };
 
-interface SidebarProps {
-    isShowingContentByDate: boolean;
-    setIsShowingContentByDate: (newState: boolean) => void;
-}
-
-const Sidebar: React.FC<SidebarProps> = ({ isShowingContentByDate, setIsShowingContentByDate }) => {
+const Sidebar: React.FC<SidebarProps> = ({currentAuthor, currentPoem}) => {
     const [currentDay, setCurrentDay] = useState('');
-    const { currentPoem } = usePoem();
-    const { currentAuthor } = useAuthor();
-
+    
     useEffect(() => {
         const date = new Date();
         const formattedDate = `2013${(date.getMonth() + 1).toString().padStart(2, '0')}${(date.getDate()).toString().padStart(2, '0')}`;
         setCurrentDay(formattedDate);
+        
     }, []);
+    console.log('currentDay:', currentDay);
+    console.log('currentAuthor:', currentAuthor);
+    console.log('currentPoem:', currentPoem);
     return (
         <div className="Sidebar">
             <Link href={`/day/${currentDay}`}>
-                <button onClick={() => setIsShowingContentByDate(true)}> Day </button>
+                <button onClick={() => {}}> Day </button>
             </Link>
             <Link href={`/author/${currentAuthor}`}>
-                <button onClick={() => setIsShowingContentByDate(false)}> Author </button>
+                <button onClick={() => {}}> Author </button>
             </Link>
             <Link href={`/poem/${currentPoem}`}>
-                <button onClick={() => setIsShowingContentByDate(false)}> Poem </button>
+                <button onClick={() => {}}> Poem </button>
             </Link>
         </div>
     );

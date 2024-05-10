@@ -1,8 +1,5 @@
-
 import Poem from '../../components/poem';
 import Note from '../../components/note';
-import { usePoem } from '../../context/poemcontext';
-import { useAuthor } from '../../context/authorcontext';
 import fs from 'fs';
 import path from 'path';
 
@@ -11,18 +8,13 @@ export async function generateStaticParams() {
 }
 
 async function getData(params: { dayId: string }) {
-  /**const res = await fetch(
-   `https://d3vq6af2mo7fcy.cloudfront.net/public/2017/01/${params.id}.json`
-  );
-  const data = await res.json();
-  return data;**/
   
-  //`../../../../Garrison/public/poem/${params.id}.json`
   try {
     const year = params.dayId.slice(0, 4);
     const month = params.dayId.slice(4, 6);
 
-    const filePath = path.join(process.cwd(), '..', '..', 'Garrison', 'public', year, month, `${params.dayId}.json` );
+    const filePath = path.join(process.cwd(), '..', '..', 'Git','garrison', 'public', 'day', year, month, `${params.dayId}.json` );
+    console.log(filePath)
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const data = JSON.parse(fileContents);
     return data;
@@ -33,16 +25,12 @@ async function getData(params: { dayId: string }) {
 }
 
 export default async function Page({ params }: { params: { dayId: string } }) {
-  //const { setCurrentPoem } = usePoem();
-  //const { setCurrentAuthor } = useAuthor();
+ 
   const data = await getData(params);
-  
-  
-  //setCurrentPoem(data.poem);
-  //setCurrentAuthor(data.author);
   
   return (
     <div className="main-content">
+      
       <h1>{data.date}</h1>
       <h3>{data.dayofweek}</h3>
       <Poem
@@ -52,6 +40,9 @@ export default async function Page({ params }: { params: { dayId: string } }) {
         author={data.author}
       />
       <Note note={data.notes} />
+      <script id="server-data" type="application/json">
+        {JSON.stringify(data)}
+      </script>
     </div>
   );
 }
