@@ -1,5 +1,7 @@
 import AuthorDetails from '../../components/authordetails';
 import sortedAuthors from '../../../public/Authors_sorted.js';
+import Navigation from '../../components/navigation';
+import rd from '../../../randomizedData.json';
 
 import fs from 'fs';
 import path from 'path';
@@ -23,13 +25,32 @@ async function getData( authorId: string ) {
   }
 }
 
+interface AuthorData {
+  [key: string]: string;
+}
+
 export default async function Page({ params }: { params: { authorId: string } }) {
   const authorId = decodeURIComponent(params.authorId);
   
+  const rdAuthor: AuthorData = rd['author'];
   const data = await getData(authorId);
+  const authorsArray = Object.values(rdAuthor)
+  
+  const matchingKey = authorsArray.findIndex(author => author === authorId);
+
+  const prevLink =
+  matchingKey === 0
+    ? '/author/' + rdAuthor[Object.keys(rdAuthor).length.toString()]
+    : '/author/' + rdAuthor[matchingKey.toString()];
+
+  const nextLink =
+    matchingKey + 1 === Object.keys(rdAuthor).length
+      ? '/author/' + rdAuthor[(matchingKey + 2).toString()]
+      : '/author/' + rdAuthor['1'];
 
   return (
-    <main className="main-content">
+    <div className="main-content">
+      <Navigation prevLink={prevLink} nextLink={nextLink}>
       {data && ( 
         <AuthorDetails
           authorName={data.authorName}
@@ -38,7 +59,8 @@ export default async function Page({ params }: { params: { authorId: string } })
           poems={data.poems}
         />
       )}
-    </main>
+      </Navigation>
+    </div>
   );
 }
 
