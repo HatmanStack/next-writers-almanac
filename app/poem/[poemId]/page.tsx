@@ -1,7 +1,7 @@
 import PoemDetails from '../../components/poemdetails';
 import sortedPoems from '../../../public/Poems_sorted.js';
 import Navigation from '../../components/navigation';
-import rd from '../../../randomizedData.json';
+import md from '../../../main_dictionary.json';
 import fs from 'fs';
 import path from 'path';
 
@@ -28,21 +28,22 @@ interface PoemData {
 
 export default async function Page({ params }: { params: { poemId: string } }) {
   
-  const rdPoem: PoemData = rd['poem'];
-  const data = await getData(poemId);
-  const dayArray = Object.values(rdPoem)
+  const mdPoem: PoemData = md['poem'];
+  const data = await getData(params);
+  const dayArray = Object.values(mdPoem)
   
-  const matchingKey = dayArray.findIndex(day => day === poemId);
+  const matchingKey = dayArray.findIndex(day => day === params.poemId + '.json');
+  const poemCode = matchingKey + 1;
 
   const prevLink =
-  matchingKey === 0
-    ? '/poem/' + rdPoem[Object.keys(rdPoem).length.toString()]
-    : '/poem/' + rdPoem[matchingKey.toString()];
+  poemCode === 1
+    ? '/poem/' + mdPoem[Object.keys(mdPoem).length.toString()]
+    : '/poem/' + mdPoem[(poemCode - 1).toString()];
 
   const nextLink =
-    matchingKey + 1 === Object.keys(rdPoem).length
-      ? '/poem/' + rdPoem[(matchingKey + 2).toString()]
-      : '/poem/' + rdPoem['1'];
+    poemCode === Object.keys(mdPoem).length
+      ? '/poem/' + mdPoem['1']
+      : '/poem/' + mdPoem[(poemCode + 1).toString()];
 
   
   return (

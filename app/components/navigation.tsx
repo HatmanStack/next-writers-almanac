@@ -8,13 +8,16 @@ interface NavigationProps {
 }
 
 const Navigation: React.FC<NavigationProps> = ({ prevLink, nextLink, children }) => {
+  const cleanPrevLink = prevLink.replace('.json', '');
+  const cleanNextLink = nextLink.replace('.json', '');
+
   return (
     <div>
-      <Link href={prevLink}>
+      <Link href={cleanPrevLink}>
       <button onClick={() => {}}> Previous </button>
       </Link>
       {children}
-      <Link href={nextLink}>
+      <Link href={cleanNextLink}>
       <button onClick={() => {}}> Next </button>
       </Link>
     </div>

@@ -1,7 +1,7 @@
 import AuthorDetails from '../../components/authordetails';
 import sortedAuthors from '../../../public/Authors_sorted.js';
 import Navigation from '../../components/navigation';
-import rd from '../../../randomizedData.json';
+import md from '../../../main_dictionary.json';
 
 import fs from 'fs';
 import path from 'path';
@@ -32,21 +32,23 @@ interface AuthorData {
 export default async function Page({ params }: { params: { authorId: string } }) {
   const authorId = decodeURIComponent(params.authorId);
   
-  const rdAuthor: AuthorData = rd['author'];
+  const mdAuthor: AuthorData = md['author'];
   const data = await getData(authorId);
-  const authorsArray = Object.values(rdAuthor)
+  const authorsArray = Object.values(mdAuthor)
   
-  const matchingKey = authorsArray.findIndex(author => author === authorId);
+  const matchingKey = authorsArray.findIndex(author => author === authorId + '.json');
+  
+  const authorCode = matchingKey + 1;
 
   const prevLink =
-  matchingKey === 0
-    ? '/author/' + rdAuthor[Object.keys(rdAuthor).length.toString()]
-    : '/author/' + rdAuthor[matchingKey.toString()];
+  authorCode === 1
+    ? '/author/' + mdAuthor[Object.keys(mdAuthor).length.toString()]
+    : '/author/' + mdAuthor[(authorCode - 1).toString()];
 
   const nextLink =
-    matchingKey + 1 === Object.keys(rdAuthor).length
-      ? '/author/' + rdAuthor[(matchingKey + 2).toString()]
-      : '/author/' + rdAuthor['1'];
+    authorCode === Object.keys(mdAuthor).length
+      ? '/author/' + mdAuthor['1']
+      : '/author/' + mdAuthor[(authorCode + 1).toString()];
 
   return (
     <div className="main-content">

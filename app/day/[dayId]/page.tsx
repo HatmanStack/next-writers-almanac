@@ -3,7 +3,7 @@ import Note from '../../components/note';
 import fs from 'fs';
 import path from 'path';
 import Navigation from '../../components/navigation';
-import rd from '../../../randomizedData.json';
+import md from '../../../main_dictionary.json';
 
 export async function generateStaticParams() {
   return [{ params: { id: '20170101' } }, { params: { id: '02' } }];
@@ -31,24 +31,26 @@ interface DayData {
 }
 
 export default async function Page({ params }: { params: { dayId: string } }) {
- 
-  const rdDay: DayData = rd['day'];
-  const data = await getData(dayId);
-  const dayArray = Object.values(rdDay)
   
-  const matchingKey = dayArray.findIndex(day => day === dayId);
+  const mdDay: DayData = md['day'];
+  const data = await getData(params);
+  const dayArray = Object.values(mdDay)
+  
+  const matchingKey = dayArray.findIndex(day => day === params.dayId + '.json');
+  
+  const dayCode = matchingKey + 1;
 
   const prevLink =
-  matchingKey === 0
-    ? '/day/' + rdDay[Object.keys(rdDay).length.toString()]
-    : '/day/' + rdDay[matchingKey.toString()];
+  dayCode === 1
+    ? '/day/' + mdDay[Object.keys(mdDay).length.toString()]
+    : '/day/' + mdDay[(dayCode - 1).toString()];
 
   const nextLink =
-    matchingKey + 1 === Object.keys(rdDay).length
-      ? '/day/' + rdDay[(matchingKey + 2).toString()]
-      : '/day/' + rdDay['1'];
+    dayCode === Object.keys(mdDay).length
+      ? '/day/' + mdDay['1']
+      : '/day/' + mdDay[(dayCode + 1).toString()];
 
-  
+      console.log(`machtingKey : ${prevLink}`)
   return (
     <div className="main-content">
       <Navigation prevLink={prevLink} nextLink={nextLink}>
