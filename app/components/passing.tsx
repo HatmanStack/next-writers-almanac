@@ -33,6 +33,7 @@ useEffect(() => {
 }, []);
 
   useEffect(() => {
+    console.log('Checking serverData')
     if (serverData) {
       setCurrentAuthor(serverData.author[0]);
       setCurrentPoem(serverData.poemid[0]);

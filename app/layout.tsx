@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import './ui/global.css'
 
+
 interface LayoutProps {
     children: React.ReactNode;
 }
@@ -26,12 +27,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     {/* Search component will go here */}
                 </div>
                 <div className={classNames({})}>
+                    
                     <Passing>
                     
                     <div className="MainContent">
                         {children}
                     </div>
                     </Passing>
+                    
+                    
                 </div>   
             </body>
         </html>   

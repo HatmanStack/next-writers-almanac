@@ -1,5 +1,6 @@
 'use client'
 import React, { useEffect, useState }   from 'react'; 
+
 import Link from 'next/link';
 
 type SidebarProps = {
@@ -9,6 +10,7 @@ type SidebarProps = {
 
 const Sidebar: React.FC<SidebarProps> = ({currentAuthor, currentPoem}) => {
     const [currentDay, setCurrentDay] = useState('');
+    
     
     useEffect(() => {
         const date = new Date();

@@ -50,8 +50,8 @@ export default async function Page({ params }: { params: { poemId: string } }) {
     <div> 
       <Navigation prevLink={prevLink} nextLink={nextLink}>
       <PoemDetails
-        poemTitle={data.poemTitle}
-        authorName={data.authorName}
+        poemtitle={data.poemtitle}
+        author={data.author}
         poem={data.poem}
         analysis={data.analysis}
       />

@@ -1,18 +1,19 @@
 'use client';
 import Link from 'next/link';
 
+
 interface NavigationProps {
-    prevLink: string;
-    nextLink: string;
-    children: React.ReactNode; 
+  prevLink: string;
+  nextLink: string;
+  children: React.ReactNode; 
 }
 
 const Navigation: React.FC<NavigationProps> = ({ prevLink, nextLink, children }) => {
   const cleanPrevLink = prevLink.replace('.json', '');
   const cleanNextLink = nextLink.replace('.json', '');
-
+  
   return (
-    <div>
+    <div className="Card-Wrapper">
       <Link href={cleanPrevLink}>
       <button onClick={() => {}}> Previous </button>
       </Link>

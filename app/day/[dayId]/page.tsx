@@ -16,7 +16,7 @@ async function getData(params: { dayId: string }) {
     const month = params.dayId.slice(4, 6);
 
     const filePath = path.join(process.cwd(), '..', '..', 'Git','garrison', 'public', 'day', year, month, `${params.dayId}.json` );
-    console.log(filePath)
+    
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const data = JSON.parse(fileContents);
     return data;
@@ -50,7 +50,7 @@ export default async function Page({ params }: { params: { dayId: string } }) {
       ? '/day/' + mdDay['1']
       : '/day/' + mdDay[(dayCode + 1).toString()];
 
-      console.log(`machtingKey : ${prevLink}`)
+      console.log('data:', JSON.stringify(data));
   return (
     <div className="main-content">
       <Navigation prevLink={prevLink} nextLink={nextLink}>
@@ -64,9 +64,9 @@ export default async function Page({ params }: { params: { dayId: string } }) {
         author={data.author}
       />
       <Note note={data.notes} />
-      <script id="server-data" type="application/json">
+      <span id="server-data" type="application/json">
         {JSON.stringify(data)}
-      </script>
+      </span>
       </Navigation>
     </div>
   );

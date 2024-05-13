@@ -15,7 +15,6 @@ async function getData( authorId: string ) {
   
   try {
   const filePath = path.join(process.cwd(), '..', '..', 'Git','garrison', 'public', 'author', `${authorId}.json` );
-  console.log(filePath)
   const fileContents = fs.readFileSync(filePath, 'utf8');
   const data = JSON.parse(fileContents);
   return data;
