@@ -50,7 +50,7 @@ export default async function Page({ params }: { params: { dayId: string } }) {
       ? '/day/' + mdDay['1']
       : '/day/' + mdDay[(dayCode + 1).toString()];
 
-      console.log('data:', JSON.stringify(data));
+      ;
   return (
     <div className="main-content">
       <Navigation prevLink={prevLink} nextLink={nextLink}>
@@ -64,9 +64,9 @@ export default async function Page({ params }: { params: { dayId: string } }) {
         author={data.author}
       />
       <Note note={data.notes} />
-      <span id="server-data" type="application/json">
+      <script id="server-data" type="application/json">
         {JSON.stringify(data)}
-      </span>
+      </script>
       </Navigation>
     </div>
   );

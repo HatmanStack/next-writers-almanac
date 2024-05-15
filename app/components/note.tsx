@@ -15,11 +15,12 @@ interface NoteProps {
 const Note: React.FC<NoteProps> = ({ note }) => {
     return (
     <div>
+      <br></br>
       {note && note.map((string, index) => (
-      <div className="Note-Day" style={{ backgroundColor: 'black', color: 'white' }}>
+      <div className="Note-Day" >
         <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(string).replaceAll(/[^\x20-\x7E]/g, '') }} />
           <div>{index < note.length - 1 && 
-            <div className="Divider">
+            <div className="Divider" style={{ backgroundColor: 'black', color: 'white' }}>
           <br></br>
             <Image src='/divider.png'alt="divider" layout="responsive" width={.1} height={.1} />
           </div>}

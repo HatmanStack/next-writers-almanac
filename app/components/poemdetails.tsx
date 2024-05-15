@@ -1,4 +1,9 @@
 import React from 'react';
+import createDOMPurify from 'dompurify';
+import {JSDOM}  from 'jsdom';
+
+const window = new JSDOM('').window;
+const DOMPurify = createDOMPurify(window)
 
 interface PoemDetailsProps {
   poemtitle: string;
@@ -12,13 +17,13 @@ const PoemDetails: React.FC<PoemDetailsProps> = ({ poemtitle, author, poem, anal
   
   return (
     
-    <div className="PoemDetailsContainer" style={{ backgroundColor: 'black', color: 'white' }}>  
-      <h1>{poemtitle}</h1>
-      <p className="author">By: {author}</p> 
-      <div className="poem-text">
-        {poem}
-      </div>
-      {analysis && <div className="analysis">{analysis}</div>}
+    <div className="PoemDetailsContainer" style={{ backgroundColor: 'black', color: 'white' }} >  
+      <h1 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(poemtitle).replaceAll(/[^\x20-\x7E]/g, '')}}/>
+      <p className="author" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(author).replaceAll(/[^\x20-\x7E]/g, '')}}/> 
+      <div className="poem-text"  dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(poem).replaceAll(/[^\x20-\x7E]/g, '')}}/>
+      <br></br>
+      <h2>Analysis</h2>
+      {analysis && <div className="analysis" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(analysis).replaceAll(/[^\x20-\x7E]/g, '')}}/>}
     </div>
     
   );
