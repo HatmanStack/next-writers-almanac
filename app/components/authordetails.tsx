@@ -23,26 +23,21 @@ type AuthorDetailsProps = {
   authorName: string;
   biography: string;
   poems: { [key: string]: string };
-  photos: { [key: string]: string | { image: string; credit: string } };
-  
+  photos:  string[] ;  
 };
 
 const AuthorDetails: React.FC<AuthorDetailsProps> = ({ authorName, biography, poems, photos }) => {
-  const photoUrls = photos ? Object.values(photos).map(photo => typeof photo === 'string' ? photo : photo.image) : [];
+  const photoUrls = photos ? photos.map(photo => `/image/${photo}`) : [];
   
   const poemEntries = poems ? Object.entries(poems) : [];
   
   return (
-    <div className="AuthorDetailsContainer" style={{ backgroundColor: 'black', color: 'white' }}> 
+    <div className="AuthorDetailsContainer" > 
       <h1 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(authorName).replaceAll(/[^\x20-\x7E]/g, '')}}/>
 
-      {photoUrls.length > 0 && (
-        <div className="authorPhotos" style={{ backgroundColor: 'black', color: 'white' }}>
-          {photoUrls.map((photoUrl, index) => (
-            <img src={photoUrl} alt={`${authorName} photo ${index + 1}`} className="authorPhoto" key={index} />
-          ))}
-        </div>
-      )}
+      {photoUrls.map((photoUrl: string, index) => (
+        <img src={photoUrl} alt={`${authorName} photo ${index + 1}`} className="authorPhoto" key={index} />
+      ))}
 
       {biography && 
         <div className="biography">
@@ -50,22 +45,25 @@ const AuthorDetails: React.FC<AuthorDetailsProps> = ({ authorName, biography, po
           <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(biography).replaceAll(/[^\x20-\x7E]/g, '')}}/>
         </div>
       }
-        <h2>Poems</h2>
+        {poemEntries.length > 0 && <h2>Poems</h2>}
         {poemEntries.map((website) => {
-          
-          return (
-            <div >
-              <h2>{HeadingKey[website[0]]}</h2> 
-              <ul>
-                {Object.entries(website[1]).map(([poemTitle, poemUrl]) => (
-                  <li key={poemTitle}>
-                    <a href={poemUrl} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(poemTitle).replaceAll(/[^\x20-\x7E]/g, '')}} />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          );
-        })}
+  const entries = typeof website[1] === 'string' ? JSON.parse(website[1]) : Object.entries(website[1]);
+  
+  if (Array.isArray(entries) && entries.length > 0) {
+    return (
+      <div>
+        <h2>{HeadingKey[website[0]]}</h2> 
+        <ul>
+          {entries.map(([poemTitle, poemUrl]) => (
+            <li >
+              <a href={poemUrl} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(poemTitle).replaceAll(/[^\x20-\x7E]/g, '')}} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+})}
     </div>
   );
 };

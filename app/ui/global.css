@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 /* Body Styles */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif;  
   }
+
+  :root {
+    --colorName: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+}
   
   /* Header Styles */
   header {
@@ -15,45 +21,111 @@ body {
   }
   
   /* SidebarStyles */
-  .Sidebar{
-    height: 100%;
-    width: 200px;
+  .Sidebar {
     position: fixed;
-    z-index: 1;
-    top: 0;
+    bottom: 0;
     left: 0;
-    background-color: #f1f1f1;
+    height: 80%;
+    width: 200px;
+    transition: transform 0.3s ease-out;
+    transform: translateX(0);
+    background: #ffffff;
+    overflow-y: auto;
     overflow-x: hidden;
-    padding-top: 20px;
-  }
-  
-  .Sidebar a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 16px;
-    color: #333;
-    display: block;
-  }
-  
-  .Sidebar a:hover {
-    color: #000;
-  }
-  
-  /* Main Content Styles */
-  
+    z-index: 1000; /* Ensure the sidebar is above other content */
+}
 
-  .Card-Wrapper {
-    margin-left: 200px;
-    padding: 20px;
-  }
-  
-  .card {
-    background-color: #fff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    margin-bottom: 20px;
-  }
+body:not(:hover) .Sidebar {
+  transform: translateX(100%);
+}
 
+.Sidebar.collapsed {
+    transform: translateX(-100%);
+}
+
+body:hover .Sidebar.collapsed {
+  transform: translateX(0);
+}
+
+.Sidebar {
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  width: 200px;
+  transition: width 1s;
+}
+
+.Sidebar.collapsed {
+    width: 1px;
+}
+
+body:hover .Sidebar.collapsed {
+  width: 100px;
+}
+
+/* SIDBAR BUTTONS */
+  .Sidebar-Button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.5s;
+    background: var(--colorName);
+    background-size: 600% 100%;
+    animation: Gradient 5s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.Sidebar-Button:hover {
+    background-position: right center; /* change the direction of the change here */
+}
+
+@keyframes Gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+  
+/* Card Buttons */
+
+.Card-Navigation-Button {
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  font-size: 2em;
+  outline: none;
+  border: none;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--colorName);
+  background: var(--colorName);
+  background-size: 600% 100%;
+  animation: Gradient 5s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background 0.5s;
+}
+
+#left-button {
+  left: 0;
+}
+
+#right-button {
+  right: 0;
+}
+
+/** Card Styles */
+
+.Card-Wrapper {
+  background-color: #333; /* dark background */
+  color: #fff; /* light lettering */
+  margin: 100px;
+}
+  
+  
   .Divider {
     width: 5%; /* Adjust this value to change the size of the image */
     margin: 30px auto; /* Center the image */

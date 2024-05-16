@@ -13,13 +13,15 @@ const Navigation: React.FC<NavigationProps> = ({ prevLink, nextLink, children })
   const cleanNextLink = nextLink.replace('.json', '');
   
   return (
-    <div className="Card-Wrapper">
+    <div >
       <Link href={cleanPrevLink}>
-      <button onClick={() => {}}> Previous </button>
+      <button className="Card-Navigation-Button" id="left-button" onClick={() => {}}> &lt;</button>
       </Link>
+      <div className="Card-Wrapper">
       {children}
+      </div>
       <Link href={cleanNextLink}>
-      <button onClick={() => {}}> Next </button>
+      <button className="Card-Navigation-Button" id="right-button" onClick={() => {}}> &gt;</button>
       </Link>
     </div>
   );

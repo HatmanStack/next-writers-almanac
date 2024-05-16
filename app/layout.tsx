@@ -35,7 +35,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     </div>
                     </Passing>
                     
-                    
                 </div>   
             </body>
         </html>   

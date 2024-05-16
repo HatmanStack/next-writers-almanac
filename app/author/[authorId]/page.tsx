@@ -56,7 +56,7 @@ export default async function Page({ params }: { params: { authorId: string } })
         <AuthorDetails
           authorName={data.authorName}
           biography={data.biography}
-          photos={data.photos}
+          photos={data.media}
           poems={data.poems}
         />
       )}

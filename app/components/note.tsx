@@ -20,7 +20,7 @@ const Note: React.FC<NoteProps> = ({ note }) => {
       <div className="Note-Day" >
         <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(string).replaceAll(/[^\x20-\x7E]/g, '') }} />
           <div>{index < note.length - 1 && 
-            <div className="Divider" style={{ backgroundColor: 'black', color: 'white' }}>
+            <div className="Divider" >
           <br></br>
             <Image src='/divider.png'alt="divider" layout="responsive" width={.1} height={.1} />
           </div>}
