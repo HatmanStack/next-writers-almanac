@@ -4,6 +4,7 @@ import re
 import os
 import time
 import sys
+import gc
 from transformers import AutoTokenizer
 from huggingface_hub import login
 from dotenv import load_dotenv
@@ -68,6 +69,8 @@ def chat_setup(payload,queryNumber, modelId, json_data = "NotAvailable"):
                 {"role": "system", "content": "You are an expert creative writer that uses unique approaches to different ideas."},
                 {"role": "user", "content": f'Write about about the following topic {payload}'},
                 ]
+            
+    
     
     return chat
 
@@ -163,3 +166,5 @@ def sources():
     return source
 
 run_inference()
+
+

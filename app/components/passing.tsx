@@ -2,7 +2,9 @@
  
 import { useState, useEffect} from 'react'
 import Sidebar from './sidebar';
- 
+import Image from 'next/image';
+import logo from '../logo_writersalmanac.png'; 
+
 export default function Passing({
   children,
 }: {
@@ -40,11 +42,41 @@ useEffect(() => {
     }
   }, [serverData]);
 
+  useEffect(() => {
+    function handleScroll() {
+        const header = document.querySelector('body > header');
+        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    
+        if (header) {
+            if (scrollPosition > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup on unmount
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+    };
+}, []); 
+
   return (
-    <>
+    <div className="container">
+    <div className="header">
+      <Image className="LogoImage" src={logo} alt="LOGO" />
+    </div>
+    <div className="container-row">
+    <div className="side"/>
       <Sidebar currentAuthor={currentAuthor} currentPoem={currentPoem} />
+      
       {children}
-    </>
+      <div className="side"/>
+      </div>
+    </div>
   )
 
 }

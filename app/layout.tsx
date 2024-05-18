@@ -1,8 +1,10 @@
+'use client';
 import Passing from './components/passing'; 
-import logo from './logo_writersalmanac.png'; 
+import React from 'react';
+
 import classNames from 'classnames';
 import Head from 'next/head'; 
-import Image from 'next/image';
+
 import './ui/global.css'
 
 
@@ -11,6 +13,8 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+
+    
     
     return (
         <html lang="en">
@@ -20,22 +24,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 {/* Add other SEO meta tags as needed */}
             </Head>
             <body>
-            
-                <div className="AppHeader">
-                    <Image className="LogoImage" src={logo} alt="LOGO" />
-                    <div className="FormattingContainer" />
-                    {/* Search component will go here */}
-                </div>
+                
+                
                 <div className={classNames({})}>
-                    
-                    <Passing>
-                    
-                    <div className="MainContent">
+                    <Passing>                    
                         {children}
-                    </div>
                     </Passing>
-                    
-                </div>   
+                </div>         
             </body>
         </html>   
     );

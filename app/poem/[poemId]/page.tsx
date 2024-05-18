@@ -47,15 +47,19 @@ export default async function Page({ params }: { params: { poemId: string } }) {
 
   
   return (
-    <div> 
-      <Navigation prevLink={prevLink} nextLink={nextLink}>
+ 
+  <div className="content">
+    
+    <Navigation prevLink={prevLink} nextLink={nextLink}>
       <PoemDetails
         poemtitle={data.poemtitle}
         author={data.author}
         poem={data.poem}
         analysis={data.analysis}
       />
-      </Navigation>
-    </div>
+    </Navigation>
+    
+  </div>
+ 
   );
 }

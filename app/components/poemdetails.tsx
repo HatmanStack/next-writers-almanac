@@ -17,7 +17,7 @@ const PoemDetails: React.FC<PoemDetailsProps> = ({ poemtitle, author, poem, anal
   
   return (
     
-    <div className="PoemDetailsContainer" style={{ backgroundColor: 'black', color: 'white' }} >  
+    <div className="PoemDetailsContainer" >  
       <h1 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(poemtitle).replaceAll(/[^\x20-\x7E]/g, '')}}/>
       <p className="author" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(author).replaceAll(/[^\x20-\x7E]/g, '')}}/> 
       <div className="poem-text"  dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(poem).replaceAll(/[^\x20-\x7E]/g, '')}}/>

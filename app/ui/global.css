@@ -1,25 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-/* Body Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;  
-  }
+  font-family: Arial, sans-serif;
+ 
+}
 
   :root {
     --colorName: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 }
-  
-  /* Header Styles */
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
+   
   /* SidebarStyles */
   .Sidebar {
     position: fixed;
@@ -35,16 +30,8 @@ body {
     z-index: 1000; /* Ensure the sidebar is above other content */
 }
 
-body:not(:hover) .Sidebar {
-  transform: translateX(100%);
-}
-
 .Sidebar.collapsed {
     transform: translateX(-100%);
-}
-
-body:hover .Sidebar.collapsed {
-  transform: translateX(0);
 }
 
 .Sidebar {
@@ -59,9 +46,6 @@ body:hover .Sidebar.collapsed {
     width: 1px;
 }
 
-body:hover .Sidebar.collapsed {
-  width: 100px;
-}
 
 /* SIDBAR BUTTONS */
   .Sidebar-Button {
@@ -107,26 +91,99 @@ body:hover .Sidebar.collapsed {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: background 0.5s;
+  z-index: 1;
 }
 
 #left-button {
   left: 0;
+  padding-left: 10%;
 }
 
 #right-button {
   right: 0;
+  padding-right: 10%;
 }
-
-/** Card Styles */
-
-.Card-Wrapper {
-  background-color: #333; /* dark background */
-  color: #fff; /* light lettering */
-  margin: 100px;
-}
-  
-  
+   
   .Divider {
     width: 5%; /* Adjust this value to change the size of the image */
     margin: 30px auto; /* Center the image */
   }
+
+
+/* Header styles */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+header.scrolled {
+  transform: translateY(-100%);
+}
+
+/* Main content container */
+
+  .container {
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    padding-top: 80px; 
+  }
+
+.container-row {
+  display: flex;
+  flex: 1; /* This allows the row to grow and fill the remaining height */
+  justify-content: space-between;
+  align-items: stretch; /* This ensures the .side and .content elements stretch to the same height */
+}
+/* Middle section */
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f2f2f2;
+  
+  justify-content: center; /* Add this line */
+  align-items: center; 
+}
+
+/* Side sections */
+.side {
+  width: 200px;
+  padding: 20px;
+  position: relative;
+  background-color: #3f4b74;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  min-height: 100vh;
+}
+
+body:hover .Sidebar.collapsed {
+  transform: translateX(0);
+}
+
+body:hover .Sidebar.collapsed {
+  width: 100px; /* Adjust the width as needed */
+}
+
+.Passing {
+  flex: 1 1 auto;
+  max-width: 100%;
+  padding: 0 20px; /* Add some padding to the sides */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .side {
+    width: 100%;
+  }
+}

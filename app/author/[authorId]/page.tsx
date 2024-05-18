@@ -50,7 +50,9 @@ export default async function Page({ params }: { params: { authorId: string } })
       : '/author/' + mdAuthor[(authorCode + 1).toString()];
 
   return (
-    <div className="main-content">
+   
+    <div className="content">
+      
       <Navigation prevLink={prevLink} nextLink={nextLink}>
       {data && ( 
         <AuthorDetails
@@ -61,7 +63,9 @@ export default async function Page({ params }: { params: { authorId: string } })
         />
       )}
       </Navigation>
-    </div>
+      
+      </div>
+     
   );
 }
 

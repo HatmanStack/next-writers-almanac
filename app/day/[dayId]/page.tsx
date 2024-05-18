@@ -52,7 +52,9 @@ export default async function Page({ params }: { params: { dayId: string } }) {
 
       ;
   return (
-    <div className="main-content">
+   
+    <div className="content">
+      
       <Navigation prevLink={prevLink} nextLink={nextLink}>
     
       <h1>{data.date}</h1>
@@ -68,6 +70,8 @@ export default async function Page({ params }: { params: { dayId: string } }) {
         {JSON.stringify(data)}
       </script>
       </Navigation>
-    </div>
+      
+      </div>
+      
   );
 }
