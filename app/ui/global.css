@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 * {
   margin: 0;
@@ -8,10 +11,14 @@
 
 body {
   font-family: Arial, sans-serif;
- 
 }
 
-  :root {
+a {
+  text-decoration: none;
+  color:#e73c7e; /* Find a color scheme */
+}
+
+:root {
     --colorName: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 }
    
@@ -104,10 +111,15 @@ body {
   padding-right: 10%;
 }
    
-  .Divider {
-    width: 5%; /* Adjust this value to change the size of the image */
-    margin: 30px auto; /* Center the image */
-  }
+.Divider {
+  width: 5%; /* Adjust this value to change the size of the image */
+  margin: 30px auto; /* Center the image */
+}
+.DividerMarginTop {
+  width: 5%; /* Holder Till <br> are removed from day*/
+  margin: 0px auto; 
+  margin-top: 30px;
+}
 
 
 /* Header styles */
@@ -141,16 +153,19 @@ header.scrolled {
   flex: 1; /* This allows the row to grow and fill the remaining height */
   justify-content: space-between;
   align-items: stretch; /* This ensures the .side and .content elements stretch to the same height */
+  width: 100%;
 }
 /* Middle section */
 .content {
   flex: 1;
   padding: 20px;
-  background-color: #f2f2f2;
-  
-  justify-content: center; /* Add this line */
+  background-color: #656599;
+  flex-direction: column; 
+  justify-content: center; 
   align-items: center; 
+  text-align: center;
 }
+
 
 /* Side sections */
 .side {

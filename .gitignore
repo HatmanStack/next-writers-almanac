@@ -45,6 +45,10 @@ next-env.d.ts
 /python/node_modules
 /python/data.txt
 /python/google_response.json
+/python/fine_tune_hash
+/python/generate_poems
+/python/hashed
+/python/new_json
 
 
 

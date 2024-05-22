@@ -1,6 +1,8 @@
 import React from 'react';
 import createDOMPurify from 'dompurify';
 import {JSDOM}  from 'jsdom';
+import Image from 'next/image';
+import '../ui/poemdetails.css';
 
 const window = new JSDOM('').window;
 const DOMPurify = createDOMPurify(window)
@@ -14,16 +16,19 @@ interface PoemDetailsProps {
 
 const PoemDetails: React.FC<PoemDetailsProps> = ({ poemtitle, author, poem, analysis }) => {
 
-  
   return (
     
     <div className="PoemDetailsContainer" >  
-      <h1 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(poemtitle).replaceAll(/[^\x20-\x7E]/g, '')}}/>
-      <p className="author" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(author).replaceAll(/[^\x20-\x7E]/g, '')}}/> 
-      <div className="poem-text"  dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(poem).replaceAll(/[^\x20-\x7E]/g, '')}}/>
-      <br></br>
-      <h2>Analysis</h2>
-      {analysis && <div className="analysis" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(analysis).replaceAll(/[^\x20-\x7E]/g, '')}}/>}
+      
+      <h1 className="PoemDetailsContainerTitle" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(poemtitle).replaceAll(/[^\x20-\x7E]/g, '')}}/>
+      
+      <p className="PoemDetailsContainerAuthor" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(author).replaceAll(/[^\x20-\x7E]/g, '')}}/> 
+      <div className="PoemDetailsContainerPoemText"  dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(poem).replaceAll(/[^\x20-\x7E]/g, '')}}/>
+      
+      <div className="Divider" >
+        <Image src='/divider.png'alt="divider" layout="responsive" width={.1} height={.1} />
+        </div>
+      {analysis && <div className="PoemDetailsContainerAnalysis" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(analysis).replaceAll(/[^\x20-\x7E]/g, '')}}/>}
     </div>
     
   );

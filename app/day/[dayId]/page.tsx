@@ -14,8 +14,8 @@ async function getData(params: { dayId: string }) {
   try {
     const year = params.dayId.slice(0, 4);
     const month = params.dayId.slice(4, 6);
-
-    const filePath = path.join(process.cwd(), '..', '..', 'Git','garrison', 'public', 'day', year, month, `${params.dayId}.json` );
+   
+    const filePath = path.join(process.cwd(), '..','garrison', 'public', 'day', `${params.dayId}.json` );
     
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const data = JSON.parse(fileContents);
@@ -33,6 +33,7 @@ interface DayData {
 export default async function Page({ params }: { params: { dayId: string } }) {
   
   const mdDay: DayData = md['day'];
+  console.log('dayId:', params.dayId);
   const data = await getData(params);
   const dayArray = Object.values(mdDay)
   
@@ -50,15 +51,12 @@ export default async function Page({ params }: { params: { dayId: string } }) {
       ? '/day/' + mdDay['1']
       : '/day/' + mdDay[(dayCode + 1).toString()];
 
-      ;
+      console.log('data:', data);
   return (
    
     <div className="content">
       
       <Navigation prevLink={prevLink} nextLink={nextLink}>
-    
-      <h1>{data.date}</h1>
-      <h3>{data.dayofweek}</h3>
       <Poem
         poemTitle={data.poemtitle}
         poem={data.poem}

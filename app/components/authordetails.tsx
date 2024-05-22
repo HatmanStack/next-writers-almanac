@@ -1,6 +1,8 @@
 import React from 'react';
 import createDOMPurify from 'dompurify';
 import {JSDOM}  from 'jsdom';
+import Image from 'next/image';
+import '../ui/authordetails.css';
 
 const window = new JSDOM('').window;
 const DOMPurify = createDOMPurify(window)
@@ -34,36 +36,44 @@ const AuthorDetails: React.FC<AuthorDetailsProps> = ({ authorName, biography, po
   return (
     <div className="AuthorDetailsContainer" > 
       <h1 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(authorName).replaceAll(/[^\x20-\x7E]/g, '')}}/>
-
+      
       {photoUrls.map((photoUrl: string, index) => (
-        <img src={photoUrl} alt={`${authorName} photo ${index + 1}`} className="authorPhoto" key={index} />
+        <img src={photoUrl} alt={`${authorName} photo ${index + 1}`} className="AuthorDetailsPhoto" key={index} />
       ))}
-
+      
       {biography && 
-        <div className="biography">
-          <h2>Biography</h2>
+        <div className="AuthorDetailsBiography">
           <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(biography).replaceAll(/[^\x20-\x7E]/g, '')}}/>
         </div>
       }
-        {poemEntries.length > 0 && <h2>Poems</h2>}
+        {poemEntries.length > 0 && 
+        <div className="Divider" >
+        <Image src='/divider.png'alt="divider" layout="responsive" width={.1} height={.1} />
+        </div>}
+        <div className="AuthorDetailsPoemEntries">
         {poemEntries.map((website) => {
   const entries = typeof website[1] === 'string' ? JSON.parse(website[1]) : Object.entries(website[1]);
   
   if (Array.isArray(entries) && entries.length > 0) {
     return (
-      <div>
-        <h2>{HeadingKey[website[0]]}</h2> 
-        <ul>
-          {entries.map(([poemTitle, poemUrl]) => (
-            <li >
-              <a href={poemUrl} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(poemTitle).replaceAll(/[^\x20-\x7E]/g, '')}} />
-            </li>
-          ))}
-        </ul>
+      
+        <div>
+          <h2 className="AuthorDetailsLinksTitle">{HeadingKey[website[0]]}</h2> 
+          <div className="AuthorDetailsLinks">
+          <ul>
+            {entries.map(([poemTitle, poemUrl]) => (
+              <li>
+                <a href={poemUrl} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(poemTitle).replaceAll(/[^\x20-\x7E]/g, '')}} />
+              </li>
+              
+            ))}
+          </ul>
+        </div>
       </div>
     );
   }
 })}
+</div>
     </div>
   );
 };

@@ -1,9 +1,10 @@
 import React from 'react';
-import divider from '../../public/divider.png';
+
 import Image from 'next/image';
 
 import createDOMPurify from 'dompurify';
 import {JSDOM}  from 'jsdom';
+import '../ui/daydetails.css';
 
 const window = new JSDOM('').window;
 const DOMPurify = createDOMPurify(window);
@@ -14,14 +15,16 @@ interface NoteProps {
 
 const Note: React.FC<NoteProps> = ({ note }) => {
     return (
-    <div>
-      <br></br>
+    <div className="DayDetailsNoteContainer">
+      
+      <div className="DayDetailsNoteTitle" >History</div>
+            
       {note && note.map((string, index) => (
-      <div className="Note-Day" >
+      <div className="DayDetailsNote" >
         <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(string).replaceAll(/[^\x20-\x7E]/g, '') }} />
           <div>{index < note.length - 1 && 
-            <div className="Divider" >
-          <br></br>
+            <div className="DividerMarginTop" >
+          
             <Image src='/divider.png'alt="divider" layout="responsive" width={.1} height={.1} />
           </div>}
         </div>

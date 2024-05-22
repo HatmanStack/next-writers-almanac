@@ -11,8 +11,10 @@ import os
 
 load_dotenv()
 API_KEY = os.getenv('HUGGINGFACE_API_KEY')
+print(API_KEY)
 login(API_KEY)
-modelId = "CohereForAI/c4ai-command-r-plus"
+#modelId = "CohereForAI/c4ai-command-r-plus"
+modelId = "meta-llama/Llama-2-70b-chat-hf"
 tokenizer = AutoTokenizer.from_pretrained(modelId)
 
 
@@ -25,12 +27,12 @@ options = {"use_cache": False, "wait_for_model": True}
 
 output_folder = "./author"
 
-with open('poembyline.json', 'r') as f:
+with open('author_research.json', 'r') as f:
     poets = json.load(f)
     poets_array = list(poets.keys())
 
 if len(sys.argv) > 1:
-    count = int(sys.argv[1])
+    missingPoet = sys.argv[1]
 
 def query(payload):
     client = OpenAI(
@@ -55,17 +57,26 @@ def query1(payload):
     client = InferenceClient(model="meta-llama/Llama-2-70b-chat-hf", token=API_KEY)
     print(client.text_generation(payload,  max_new_tokens=1000))
 
-def chat_setup(payload):
-    chat = [
-        {"role": "system", "content": "You are an expert at writing biographies of poets.  The biographies you write focus on the style of the poet and intersting facts about their life."},
-        {"role": "user", "content": payload},
-        ]
+def chat_setup(payload, queryNumber):
+    if queryNumber == 1:
+            chat = [
+                {"role": "system", "content": "You are an expert at writing biographies. Write me a biography of this poet."},
+                {"role": "user", "content": payload},
+                ]
+    if queryNumber == 2:
+        chat = [
+            {"role": "system", "content": "You are an expert at editing biographies. \
+            I will give you the information about the person then the biography.  Rewrite the biography."},
+            {"role": "user", "content": payload},
+            ]
+    
+    
     return chat
 
-def query2(payload, attempt=1):
+def query2(payload, queryNumber, attempt=1):
     try:
         print('response')
-        input = tokenizer.apply_chat_template(chat_setup(payload), tokenize=False)
+        input = tokenizer.apply_chat_template(chat_setup(payload, queryNumber), tokenize=False)
         response = requests.post(API_URL, headers=headers, json={"inputs":input, "parameters": parameters,"options": options})
         
         if response.status_code != 200:
@@ -97,19 +108,20 @@ def query2(payload, attempt=1):
 
 def run_inference():   
     #for index in range(count, count+2):
-        poet = poets_array[count]
-        info = poets[poet]
-        print(poet)
-        poetsorg =  "NotAvailable" if info["poets.org"] == "NotAvailable" else re.sub('<.*?>', '', info["poets.org"]["biography"])
-        allpoetry = "NotAvailable" if info["all poetry"] == "NotAvailable" else re.sub('<.*?>', '', info["all poetry"]["biography"])
-        poetryfoundation = "NotAvailable" if info["poetry foundation"] == "NotAvailable" else re.sub('<.*?>', '', info["poetry foundation"]["biography"])
-        wikimeta = "NotAvailable" if info["wikipedia"] == "NotAvailable" else re.sub('<.*?>', '', info["wikipedia"]["poet_meta_data"]) if isinstance(info["wikipedia"]["poet_meta_data"], str) else "NotAvailable"
-        wiki = "NotAvailable" if info["wikipedia"] == "NotAvailable" else re.sub('<.*?>', '', info["wikipedia"]["biography"])
+        #poet = poets_array[count]
+        info = poets[missingPoet]
+        print(missingPoet)
+        #poetsorg =  "NotAvailable" if info["poets.org"] == "NotAvailable" else re.sub('<.*?>', '', info["poets.org"]["biography"])
+        #allpoetry = "NotAvailable" if info["all poetry"] == "NotAvailable" else re.sub('<.*?>', '', info["all poetry"]["biography"])
+        #poetryfoundation = "NotAvailable" if info["poetry foundation"] == "NotAvailable" else re.sub('<.*?>', '', info["poetry foundation"]["biography"])
+        #wikimeta = "NotAvailable" if info["wikipedia"] == "NotAvailable" else re.sub('<.*?>', '', info["wikipedia"]["poet_meta_data"]) if isinstance(info["wikipedia"]["poet_meta_data"], str) else "NotAvailable"
+        #wiki = "NotAvailable" if info["wikipedia"] == "NotAvailable" else re.sub('<.*?>', '', info["wikipedia"]["biography"])
         byline = info["writersalmanac"]
         
-        variables = [var for var in [wikimeta, poetsorg, allpoetry, poetryfoundation, wiki] if var != "NotAvailable"]
+        #variables = [var for var in [wikimeta, poetsorg, allpoetry, poetryfoundation, wiki] if var != "NotAvailable"]
         
-        data = f'Write a 400 - 800 word biography of the poet {poet}. They wrote things like {byline}. Supplement your biography with any relevant information from the following: {", ".join(variables)}.' 
+        data = f'Write a 400 - 800 word biography of the poet {missingPoet}. They wrote things like {byline}. '#Supplement your biography with any relevant information from the following: {", ".join(variables)}.' 
+        '''
         def limit_query(data, variables):
             word_count = len(data.split())
             if word_count <= 50000:
@@ -119,33 +131,33 @@ def run_inference():
                     # Remove the last variable
                     variables.pop()
                     # Generate the new data string
-                    data = f'Write a 400 - 800 word biography of the poet {poet}. They wrote things like {byline}.\nInclude facts about their life and writing style use relevant information from the following: {", ".join(variables)}.' 
+                    data = f'Write a 400 - 800 word biography of the poet {missingPoet}. They wrote things like {byline}.\nInclude facts about their life and writing style use relevant information from the following: {", ".join(variables)}.' 
                     # Recursive call
                     return limit_query(data, variables)
-        
+        '''
        
-        response = query2(limit_query(data, variables))
+        response = query2(data, 1)
 
         with open('data.json', 'r') as file:
             json_log = json.load(file)
         
-        json_log[poet] = {}
-        json_log[poet]["data"] = data
-        json_log[poet]["response"] = response[0]["generated_text"] if "NotAvailable" not in response else response
+        json_log[missingPoet] = {}
+        json_log[missingPoet]["data"] = data
+        json_log[missingPoet]["response"] = response[0]["generated_text"] if "NotAvailable" not in response else response
 
         pattern = r"\n\n\n\n"
-        match = re.search(pattern, json_log[poet]["response"])
+        match = re.search(pattern, json_log[missingPoet]["response"])
         if match or "NotAvailable" in response:
             reflected_response = "NotAvailable"
         else:
-            reflected_response = reflection(response[0]["generated_text"])
+            reflected_response = query2(response[0]["generated_text"], 2)
 
-        json_log[poet]["reflected_response"] = reflected_response[0]["generated_text"] if reflected_response != "NotAvailable" else "NotAvailable"
+        json_log[missingPoet]["reflected_response"] = reflected_response[0]["generated_text"] if reflected_response != "NotAvailable" else "NotAvailable"
         
         
         with open('data.json', 'w') as file:
             json.dump(json_log, file, indent=4)
-        
+        '''
         holder = {}
         holder["poet"] = poet
         holder["photos"] = {}
@@ -172,7 +184,7 @@ def run_inference():
         
         with open(os.path.join(output_folder, f"{poet}.json"), 'w') as f:
                 json.dump(holder, f) 
-    
+        '''
 
 def reflection(payload):
     data = "Check this response for clarity, sentence structure and \
