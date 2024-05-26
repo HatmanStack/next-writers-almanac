@@ -1,5 +1,6 @@
-'use client';
+
 import Passing from './components/passing'; 
+import Header from './components/header'; 
 import React from 'react';
 
 import classNames from 'classnames';
@@ -13,9 +14,6 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-
-    
-    
     return (
         <html lang="en">
             <Head>
@@ -24,16 +22,18 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 {/* Add other SEO meta tags as needed */}
             </Head>
             <body>
+                <div className="ParentContainer">
                 
+                <Header />
                 
                 <div className={classNames({})}>
                     <Passing>                    
                         {children}
                     </Passing>
-                </div>         
+                </div>  
+                </div>       
             </body>
         </html>   
     );
 };
-
 export default Layout; 

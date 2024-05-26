@@ -1,0 +1,28 @@
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  header.scrolled {
+    transform: translateY(-100%);
+  }
+  .LogoImage {
+    margin: .5em;
+    width: 35em;
+  }
+  .HeaderContainer {
+    display: flex;
+    position: sticky;
+    top: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 15vh; /* Set initial height */
+    transition: height 0.3s ease-in-out; /* Add transition for smooth height change */
+  }

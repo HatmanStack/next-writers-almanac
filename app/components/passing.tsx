@@ -2,8 +2,7 @@
  
 import { useState, useEffect} from 'react'
 import Sidebar from './sidebar';
-import Image from 'next/image';
-import logo from '../logo_writersalmanac.png'; 
+ 
 
 export default function Passing({
   children,
@@ -66,13 +65,10 @@ useEffect(() => {
 
   return (
     <div className="container">
-    <div className="header">
-      <Image className="LogoImage" src={logo} alt="LOGO" />
-    </div>
+    
     <div className="container-row">
     <div className="side"/>
       <Sidebar currentAuthor={currentAuthor} currentPoem={currentPoem} />
-      
       {children}
       <div className="side"/>
       </div>

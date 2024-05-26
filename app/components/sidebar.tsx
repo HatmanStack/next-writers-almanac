@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState, useRef }   from 'react'; 
-
+import '../ui/sidebar.css';
 import Link from 'next/link';
 
 type SidebarProps = {
@@ -10,16 +10,28 @@ type SidebarProps = {
 
 const Sidebar: React.FC<SidebarProps> = ({currentAuthor, currentPoem}) => {
     const [currentDay, setCurrentDay] = useState('');
-    const dayButtonRef = useRef<HTMLButtonElement>(null); 
-    const [isCollapsed, setIsCollapsed] = useState(false);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsCollapsed(true);
-        }, 3000);
+        const SidebarContainer = document.querySelector('.SidebarContainer') as HTMLElement;
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 0) {
+                SidebarContainer.style.width = '100px';
+                
+            }else {
+                SidebarContainer.style.width = '40px';
+            }
+          });
+        SidebarContainer.addEventListener('mouseover', function() {
+            SidebarContainer.style.width = '100px';
+        });
+    
+        SidebarContainer.addEventListener('mouseout', function() {
+          if (window.scrollY > 0) {
+            SidebarContainer.style.width = '50px';
+          }
+        });
 
-        return () => clearTimeout(timer);
-    }, []);
+      }, []);
     
     useEffect(() => {
         const date = new Date();
@@ -28,20 +40,14 @@ const Sidebar: React.FC<SidebarProps> = ({currentAuthor, currentPoem}) => {
         
     }, []);
 
-    useEffect(() => {
-        if (dayButtonRef.current) {
-            dayButtonRef.current.click(); // Click the Day button programmatically
-        }
-    }, [currentDay]); 
-
     console.log('currentDay:', currentDay);
     console.log('currentAuthor:', currentAuthor);
     console.log('currentPoem:', currentPoem);
     return (
-        <div className={`Sidebar ${isCollapsed ? 'collapsed' : ''}`}>
-        <div className="Sidebar">
+        
+        <div className="SidebarContainer">
             <Link href={`/day/${currentDay}`}>
-                <button className="Sidebar-Button" ref={dayButtonRef} onClick={() => {}}>Today</button>
+                <button className="Sidebar-Button" onClick={() => {}}>Today</button>
             </Link>
             <Link href={`/author/${currentAuthor}`}>
                 <button className="Sidebar-Button" onClick={() => {}}>Author</button>
@@ -50,7 +56,7 @@ const Sidebar: React.FC<SidebarProps> = ({currentAuthor, currentPoem}) => {
                 <button className="Sidebar-Button" onClick={() => {}}>Poem</button>
             </Link>
         </div>
-        </div>
+        
     );
 };
 

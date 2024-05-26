@@ -54,7 +54,7 @@ export default async function Page({ params }: { params: { dayId: string } }) {
       console.log('data:', data);
   return (
    
-    <div className="content">
+    <div className="MainContent">
       
       <Navigation prevLink={prevLink} nextLink={nextLink}>
       <Poem

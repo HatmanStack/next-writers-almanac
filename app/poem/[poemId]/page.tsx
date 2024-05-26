@@ -48,7 +48,7 @@ export default async function Page({ params }: { params: { poemId: string } }) {
   
   return (
  
-  <div className="content">
+  <div className="MainContent">
     
     <Navigation prevLink={prevLink} nextLink={nextLink}>
       <PoemDetails

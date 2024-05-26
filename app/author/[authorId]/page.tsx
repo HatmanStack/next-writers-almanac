@@ -51,7 +51,7 @@ export default async function Page({ params }: { params: { authorId: string } })
 
   return (
    
-    <div className="content">
+    <div className="MainContent">
       
       <Navigation prevLink={prevLink} nextLink={nextLink}>
       {data && ( 

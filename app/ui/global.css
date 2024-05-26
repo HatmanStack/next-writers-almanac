@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
@@ -22,57 +20,6 @@ a {
     --colorName: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 }
    
-  /* SidebarStyles */
-  .Sidebar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 80%;
-    width: 200px;
-    transition: transform 0.3s ease-out;
-    transform: translateX(0);
-    background: #ffffff;
-    overflow-y: auto;
-    overflow-x: hidden;
-    z-index: 1000; /* Ensure the sidebar is above other content */
-}
-
-.Sidebar.collapsed {
-    transform: translateX(-100%);
-}
-
-.Sidebar {
-  display: flex;
-  flex-direction: column;
-  left: 0;
-  width: 200px;
-  transition: width 1s;
-}
-
-.Sidebar.collapsed {
-    width: 1px;
-}
-
-
-/* SIDBAR BUTTONS */
-  .Sidebar-Button {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.2em;
-    outline: none;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background 0.5s;
-    background: var(--colorName);
-    background-size: 600% 100%;
-    animation: Gradient 5s ease infinite;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.Sidebar-Button:hover {
-    background-position: right center; /* change the direction of the change here */
-}
 
 @keyframes Gradient {
     0% {background-position: 0% 50%;}
@@ -122,22 +69,6 @@ a {
 }
 
 
-/* Header styles */
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  transition: transform 0.3s ease-in-out;
-}
-
-header.scrolled {
-  transform: translateY(-100%);
-}
-
 /* Main content container */
 
   .container {
@@ -156,9 +87,10 @@ header.scrolled {
   width: 100%;
 }
 /* Middle section */
-.content {
+.MainContent {
   flex: 1;
   padding: 20px;
+  padding-top: 100px;
   background-color: #656599;
   flex-direction: column; 
   justify-content: center; 
@@ -166,6 +98,10 @@ header.scrolled {
   text-align: center;
 }
 
+.ParentContainer {
+  display: flex;
+  flex-direction: column;
+}
 
 /* Side sections */
 .side {
@@ -175,15 +111,7 @@ header.scrolled {
   background-color: #3f4b74;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  min-height: 100vh;
-}
-
-body:hover .Sidebar.collapsed {
-  transform: translateX(0);
-}
-
-body:hover .Sidebar.collapsed {
-  width: 100px; /* Adjust the width as needed */
+  min-height: 80vh; 
 }
 
 .Passing {

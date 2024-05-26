@@ -83,10 +83,9 @@ def run_inference():
     if file_count == 13341:
         return
 
-    s3.download_file(bucket_name, 'objects.json', '/tmp/object.json')
-
-    with open('/tmp/object.json', 'r') as f:
+    with open('/var/task/objects.json', 'r') as f:
         s3_object = json.load(f)
+
     # Choose a random object
     object_key = random.choice(s3_object)['Key']
     while object_key in s3_objectKey["objectKeys"]:
