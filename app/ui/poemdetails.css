@@ -2,6 +2,7 @@
     margin: 20px;
     font-size: 50px;
     font-family: 'Poetsen One';
+    text-wrap: balance;
   }
   .PoemDetailsContainerAuthor{
     margin: 20px;
@@ -14,4 +15,5 @@
   }
   .PoemDetailsContainerAnalysis{
     margin: 20px;
+    text-wrap: pretty;
   }
