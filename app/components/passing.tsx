@@ -64,7 +64,7 @@ useEffect(() => {
 }, []); 
 
   return (
-    <div className="container">
+    
     
     <div className="container-row">
     <div className="side"/>
@@ -72,7 +72,7 @@ useEffect(() => {
       {children}
       <div className="side"/>
       </div>
-    </div>
+    
   )
 
 }

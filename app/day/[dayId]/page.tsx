@@ -63,7 +63,7 @@ export default async function Page({ params }: { params: { dayId: string } }) {
         poemByline={data.poembyline}
         author={data.author}
       />
-      <Note note={data.notes} />
+      <Note notes={data.notes} />
       <script id="server-data" type="application/json">
         {JSON.stringify(data)}
       </script>

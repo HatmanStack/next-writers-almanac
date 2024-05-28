@@ -21,6 +21,8 @@
   }
   li {
     margin: 10px 0; /* Adjust as needed */
+    animation: linear animate-in-and-out;
+    animation-timeline: view();
   }
   
   .AuthorDetailsPoemEntries {
@@ -34,4 +36,19 @@
   }
   .AuthorDetailsLinks {
     text-align: left;
+  }
+
+  @keyframes animate-in-and-out{
+    entry-crossing 0%{
+      opacity:0; tansform: translateY(100%); /** Braumss */
+    }
+    entry-crossing 100%{
+      opacity:1; tansform: translateY(0);
+    }
+    exit 100%{
+      opacity:1; tansform: translateY(0);
+    }
+    exit 0%{
+      opacity:0; tansform: translateY(100%);
+    }
   }

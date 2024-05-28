@@ -20,7 +20,7 @@ def transform_data(writeData, readData):
     return writeData    
     
 API_KEY = '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'
-login(API_KEY)
+#login(API_KEY)
 # Specify the directory you want to start from
 rootDir = '../../garrison/public/author'
 
@@ -91,6 +91,8 @@ def run_inference(data, i):
     data[i] = summary_1
 
     return data
+from collections import Counter
+
 
 
 def process_files():
@@ -98,11 +100,26 @@ def process_files():
     summary2 = 0
     summary3 = 0
     summary4 = 0
-    arr = []
+    summary5 = 0
+    topics = []
+    tracker= {}
+    with open('./prune.json', 'r', encoding='utf-8') as f:
+                prune = json.load(f)  
+    proportion= [.10,.35,.10,.20,.25]
+    
     summaries = ['summary1', 'summary2', 'summary3', 'summary4']
+    for i in summaries:
+        tracker[i] = {}
+    for i in tracker:
+        for j in prune.keys():
+            tracker[i][j]=0
+    deleted = {}
     for dirName, subdirList, fileList in os.walk('./combined'):
         #print(f'Found directory: {dirName}')
+        #matching = {}
         for fname in fileList:
+
+        
             
             if fname.endswith('.json'):  # Check if the file is a JSON file
                 #print(f'\t{fname}')
@@ -111,28 +128,127 @@ def process_files():
                     data = json.load(file)  # Load the data from the JSON file
                 #if data['biography'] == "NotAvailable":
                 #transform_data(data)
+               
+                if data['category'] == 'brainstorm':
+                    summary1 += 1
+                    for i in summaries:
+                        if i in data.keys():
+                            if data[i] in prune.keys():
+                                tracker[i][data[i]] += 1
+                                if prune[data[i]] * proportion[0] < tracker[i][data[i]] :
+                                    os.remove('./combined/' + fname)
+                                    deleted[fname] = data[i]
+                                    print(fname)
+                                    break
+                if data['category'] == 'creative_writing':
+                    summary2 += 1
+                    for i in summaries:
+                        if i in data.keys():
+                            if data[i] in prune.keys():
+                                
+                                tracker[i][data[i]] += 1
+                                
+                                if prune[data[i]] * proportion[1] < tracker[i][data[i]] :
+                                    os.remove('./combined/' + fname)
+                                    deleted[fname] = data[i]
+                                    print(fname)
+                                    break
+                if data['category'] == 'question_answer':
+                    summary3 += 1
+                    for i in summaries:
+                        if i in data.keys():
+                            if data[i] in prune.keys():
+                                tracker[i][data[i]] += 1
+                                if prune[data[i]] * proportion[2] < tracker[i][data[i]] :
+                                    os.remove('./combined/' + fname)
+                                    deleted[fname] = data[i]
+                                    print(fname)
+                                    break
+                if data['category'] == 'poem':
+                    summary4 += 1
+                    for i in summaries:
+                        if i in data.keys():
+                            if data[i] in prune.keys():
+                                tracker[i][data[i]] += 1
+                                if prune[data[i]] * proportion[3] < tracker[i][data[i]] :
+                                    os.remove('./combined/' + fname)
+                                    deleted[fname] = data[i]
+                                    print(fname)
+                                    break
+                if data['category'] == 'closed_question':
+                    summary5 += 1
+                    for i in summaries:
+                        if i in data.keys():
+                            if data[i] in prune.keys():
+                                tracker[i][data[i]] += 1
+                                if prune[data[i]] * proportion[4] < tracker[i][data[i]] :
+                                    os.remove('./combined/' + fname)
+                                    deleted[fname] = data[i]
+                                    print(fname)
+                                    break
+
                 
+                    
+                if data['category'] == 'brainstorm':
+                    summary1 += 1
+                if data['category'] == 'creative_writing':
+                    summary2 += 1
+                if data['category'] == 'question_answer':
+                    summary3 += 1
+                if data['category'] == 'poem':
+                    summary4 += 1
+                if data['category'] == 'closed_question':
+                    summary5 += 1   
+                '''
                 #for dirNameSource, subdirListSource, fileListSource in os.walk('./summary3'):
                 #    for sourcename in fileListSource:
                 #        if sourcename.endswith('.json'): 
                 
                 for i in summaries:
                     if i in data.keys():
-                        
-                        if len(data[i]) > 25:
-                            
-                            
-                            if i == 'summary1':
-                                summary1 += 1
-                            if i == 'summary2':
-                                summary2 += 1
-                            if i == 'summary3':
-                                summary3 += 1
-                            if i == 'summary4':
-                                print(data[i])
-                                summary4 += 1
+                        topics.append(data[i])
+                        break
+                       
 
-                '''
+    word_counts = Counter(topics)
+
+    # Iterate over the word counts
+    for word, count in word_counts.items():
+        # If the word already exists, increment its count
+        if word in word_counts:
+            word_counts[word] += 1
+        else:
+            # Otherwise, initialize its count to 1
+            word_counts[word] = 1
+
+    prune = {}
+    for word, count in word_counts.items():
+        if count > 10:
+            prune[word] = count
+            print(f"{word}: {count}")
+
+    
+                
+ 
+                matching[fname] = []
+                for checkFile in fileList:
+            
+                    if checkFile.endswith('.json'):  # Check if the file is a JSON file
+                        #print(f'\t{fname}')
+                        
+                        with open('./combined/' + checkFile, 'r', encoding='utf-8') as file:
+                            checkData = json.load(file) 
+                        
+                        if checkData['generate_answer'] == data['generate_answer']:
+
+                            if checkData['generate_question'] == data['generate_question']:
+                                summary1 += 1
+                                      
+                                matching[fname].append(checkFile)
+                with open('./checkFile.json', 'w', encoding='utf-8') as f:
+                    json.dump(matching, f, indent=4)            
+                            
+               
                 with open('./combined/' + fname, 'w', encoding='utf-8') as f:
                     json.dump(data, f, indent=4) 
                             
@@ -159,11 +275,14 @@ def process_files():
                                                     json.dump(writeData, f, indent=4) 
                             
                                                 break
-                '''             
+                '''
+    with open('deleted.json', 'w') as f:
+        json.dump(deleted, f, indent=4)
     print(f'summary1:  {summary1}')
     print(f'summary2:  {summary2}')
     print(f'summary3:  {summary3}') 
-    print(f'summary4:  {summary4}')              
+    print(f'summary4:  {summary4}')   
+    print(f'summary5:  {summary5}')             
                  
                 
                 #if test in poetBio.keys():

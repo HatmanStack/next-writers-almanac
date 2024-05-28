@@ -4,24 +4,20 @@
     justify-content: center;
     align-items: center;
     font-family: 'Playfair Display';
-  }
-  .DayDetailsTitle {
     margin: 20px;
+  }
+
+  .DayDetailsTitle {
     font-size: 50px;
     font-family: 'Poetsen One';
-      text-wrap: balance;
+    text-wrap: balance;
   }
+
   .DayDetailsAuthor {
-    margin: 20px;
     font-weight: bold;
     font-size: 30px;
   }
-  .DayDetailsPoem{
-    margin: 20px;
-  }
-  .DayDetailsByLine{
-    margin: 20px;
-  }
+  
   .DayDetailsNoteContainer{
     display: flex;
     flex-direction: column;
@@ -30,7 +26,6 @@
     font-family: 'Playfair Display'
   }
   .DayDetailsNoteTitle{ /* Different Title? (History) */
-    margin: 20px;
     margin-top: 60px;
     font-size: 30px;
     font-weight: bold;
@@ -39,7 +34,19 @@
     text-decoration-thickness: 5px;
   }
   .DayDetailsNote{
-    margin: 20px;
     margin-top: 10px;
-      text-wrap: pretty;
+    text-wrap: pretty;
+  }
+  .DayDetailsNoteParagraph{
+    animation: linear animate-in-and-out; /* Needs Adjusting */
+    animation-timeline: view();
+  }
+  
+  @keyframes animate-in-and-out{
+    entry-crossing 0%{
+      opacity:0 ;
+    }
+    entry-crossing 100%{
+      opacity:1 ;
+    }
   }

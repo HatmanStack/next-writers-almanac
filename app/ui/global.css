@@ -76,7 +76,6 @@ a {
     flex-direction: column; 
     justify-content: space-between; 
     align-items: flex-start; 
-    padding-top: 80px; 
   }
 
 .container-row {
@@ -90,7 +89,6 @@ a {
 .MainContent {
   flex: 1;
   padding: 20px;
-  padding-top: 100px;
   background-color: #656599;
   flex-direction: column; 
   justify-content: center; 
@@ -111,21 +109,14 @@ a {
   background-color: #3f4b74;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  min-height: 80vh; 
 }
 
-.Passing {
-  flex: 1 1 auto;
-  max-width: 100%;
-  padding: 0 20px; /* Add some padding to the sides */
-}
 
 /* Responsive styles */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
   }
-
   .side {
     width: 100%;
   }

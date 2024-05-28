@@ -2,27 +2,39 @@ header {
     background-color: #333;
     color: #fff;
     padding: 20px;
-    position: fixed;
+    display: flex;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
-    transition: transform 0.3s ease-in-out;
+    
+    animation-range: 0 200px;
+    animation: add-shadow linear both;
+    animation-timeline: scroll();
   }
   
-  header.scrolled {
-    transform: translateY(-100%);
-  }
   .LogoImage {
     margin: .5em;
     width: 35em;
+    animation: shrink-component linear both;
   }
   .HeaderContainer {
     display: flex;
     position: sticky;
     top: 0;
+    z-index: 1;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 15vh; /* Set initial height */
-    transition: height 0.3s ease-in-out; /* Add transition for smooth height change */
+    animation: shrink-component linear both;
+    border-radius: 10px; /* Add rounded corners */
+    }
+
+
+  @keyframes shrink-componenet{
+
+  }
+
+  @keyframes add-shadow{
+
   }

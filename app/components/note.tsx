@@ -10,26 +10,31 @@ const window = new JSDOM('').window;
 const DOMPurify = createDOMPurify(window);
 
 interface NoteProps {
-  note: string[]; // Array of note paragraphs
+  notes: string[]; // Array of note paragraphs
 }
 
-const Note: React.FC<NoteProps> = ({ note }) => {
+const Note: React.FC<NoteProps> = ({ notes }) => {
     return (
     <div className="DayDetailsNoteContainer">
       
       <div className="DayDetailsNoteTitle" >History</div>
             
-      {note && note.map((string, index) => (
-      <div className="DayDetailsNote" >
-        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(string).replaceAll(/[^\x20-\x7E]/g, '') }} />
-          <div>{index < note.length - 1 && 
-            <div className="DividerMarginTop" >
-          
-            <Image src='/divider.png'alt="divider" layout="responsive" width={.1} height={.1} />
-          </div>}
+      {notes && notes.map((note, noteIndex) => {
+      const parts = DOMPurify.sanitize(note).replaceAll(/[^\x20-\x7E]/g, '').split('</br></br>');
+      return (
+        <div key={noteIndex}>
+          {parts.map((part, partIndex) => (
+            <div className="DayDetailsNoteParagraph" key={partIndex} dangerouslySetInnerHTML={{ __html: part }} />
+          ))}
+          {noteIndex < notes.length - 1 && 
+            <div className="DividerMarginTop">
+              <Image src='/divider.png' alt="divider" layout="responsive" width={.1} height={.1} />
+            </div>
+          }
         </div>
-      </div>
-      ))}
+      );
+    })}
+    
     </div>
     );
 };
