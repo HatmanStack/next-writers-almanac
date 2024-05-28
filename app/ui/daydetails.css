@@ -9,6 +9,7 @@
     margin: 20px;
     font-size: 50px;
     font-family: 'Poetsen One';
+      text-wrap: balance;
   }
   .DayDetailsAuthor {
     margin: 20px;
@@ -40,4 +41,5 @@
   .DayDetailsNote{
     margin: 20px;
     margin-top: 10px;
+      text-wrap: balance;
   }
