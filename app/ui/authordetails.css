@@ -8,6 +8,7 @@
   
   .AuthorDetailsBiography {
     margin: 20px;
+    text-wrap: balance;
   }
   
   .AuthorDetailsPhoto {
